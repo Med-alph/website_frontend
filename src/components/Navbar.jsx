@@ -2,41 +2,60 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import "../styles/Navbar.css"
+import '../styles/Navbar.css';
 
+const NAV_ITEMS = [
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Blog', to: '/blog' },
+  { label: 'Testimonials', to: '/testimonials' },
+  { label: 'Contact', to: '/contact' },
+];
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const closeDrawer = () => setDrawerOpen(false);
+  const openDrawer = () => setDrawerOpen(true);
 
   return (
     <nav className="navbar">
-      <div className="logo">MedAlph</div>
-
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/blog">Blog</Link>
-        <Link to="/testimonials">Testimonials</Link>
-        <Link to="/contact">Contact</Link>
+      <div className="navbar__logo" tabIndex={0} aria-label="MedAlph Logo">
+        MedAlph
       </div>
 
-      <Button className="menu-button" type="text" icon={<MenuOutlined />} onClick={() => setOpen(true)} />
+      <div className="navbar__links">
+        {NAV_ITEMS.map(({ label, to }) => (
+          <Link key={to} to={to} className="navbar__link">
+            {label}
+          </Link>
+        ))}
+      </div>
+
+      <Button
+        className="navbar__menu-btn"
+        type="text"
+        icon={<MenuOutlined />}
+        onClick={openDrawer}
+        aria-label="Open navigation menu"
+      />
 
       <Drawer
         title="Menu"
         placement="right"
-        onClose={() => setOpen(false)}
-        open={open}
-        className="drawer-nav"
+        onClose={closeDrawer}
+        open={drawerOpen}
+        className="navbar__drawer"
+        keyboard={true}
+        aria-modal="true"
       >
-        <div className="drawer-links">
-          <Link to="/" onClick={() => setOpen(false)}>Home</Link>
-          <Link to="/about" onClick={() => setOpen(false)}>About</Link>
-          <Link to="/services" onClick={() => setOpen(false)}>Services</Link>
-          <Link to="/blog" onClick={() => setOpen(false)}>Blog</Link>
-          <Link to="/testimonials" onClick={() => setOpen(false)}>Testimonials</Link>
-          <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
+        <div className="navbar__drawer-links">
+          {NAV_ITEMS.map(({ label, to }) => (
+            <Link key={to} to={to} className="navbar__drawer-link" onClick={closeDrawer}>
+              {label}
+            </Link>
+          ))}
         </div>
       </Drawer>
     </nav>

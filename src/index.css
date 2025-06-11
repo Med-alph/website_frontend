@@ -14,19 +14,17 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
-.navbar {
-  background: linear-gradient(to right, #0066ff, #33ccff);
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  backdrop-filter: blur(8px);
+body {
+  background: radial-gradient(circle at 20% 30%, rgba(72, 89, 115, 0.3), transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(72, 89, 115, 0.2), transparent 40%),
+              linear-gradient(135deg, #0A0F1A, #101B2A, #0A0F1A);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 .nav-links a {
   color: white;
