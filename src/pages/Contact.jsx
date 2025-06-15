@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   TextField,
@@ -16,6 +16,18 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PhoneIcon from '@mui/icons-material/Phone';
 
 const Contact = () => {
+  const [name, setName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSendMail = () => {
+    const subject = `New Contact Message from ${name}`;
+    const body = `Name: ${name}\nEmail: ${userEmail}\n\nMessage:\n${message}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contact@medalph.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailUrl, '_blank');
+  };
+
   return (
     <Box
       sx={{
@@ -67,6 +79,8 @@ const Contact = () => {
               placeholder="Your Name"
               variant="outlined"
               fullWidth
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               InputProps={{
                 style: {
                   borderRadius: 10,
@@ -80,6 +94,8 @@ const Contact = () => {
               placeholder="Your Email"
               variant="outlined"
               fullWidth
+              value={userEmail}
+              onChange={(e) => setUserEmail(e.target.value)}
               InputProps={{
                 style: {
                   borderRadius: 10,
@@ -95,6 +111,8 @@ const Contact = () => {
               fullWidth
               multiline
               rows={3}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               InputProps={{
                 style: {
                   borderRadius: 10,
@@ -107,6 +125,7 @@ const Contact = () => {
             <Button
               variant="contained"
               fullWidth
+              onClick={handleSendMail}
               sx={{
                 mt: 1,
                 borderRadius: 2,
@@ -149,21 +168,6 @@ const Contact = () => {
                   sx={{ fontWeight: 500, color: '#ccc' }}
                 >
                   contact@medalph.com
-                </Link>
-              </Stack>
-            </Grid>
-            <Grid item>
-              <Stack direction="row" spacing={1} alignItems="center">
-                <InstagramIcon sx={{ color: 'orange' }} fontSize="small" />
-                <Link
-                  href="https://instagram.com/medalph_web"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  color="inherit"
-                  underline="hover"
-                  sx={{ fontWeight: 500, color: '#ccc' }}
-                >
-                  @medalph_web
                 </Link>
               </Stack>
             </Grid>

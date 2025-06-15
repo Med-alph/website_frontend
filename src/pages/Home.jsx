@@ -263,29 +263,71 @@ const Home = () => {
 
 
 
-      {/* Contact Section */}
       <Box sx={{ mt: 8, borderRadius: 4, p: 4 }}>
-        <Typography variant="h4" sx={{ textAlign: 'center', color: '#1e3a8a', mb: 3 }}>
-                  <span style={{ borderBottom: '5px solid orange', color:'white' }}>Get in Touch</span>
+  <Typography variant="h4" sx={{ textAlign: 'center', color: '#1e3a8a', mb: 3 }}>
+    <span style={{ borderBottom: '5px solid orange', color: 'white' }}>Get in Touch</span>
+  </Typography>
+  <Grid container spacing={4} justifyContent="center" textAlign="center">
+    
+    <Grid item xs={12} sm={6} md={3}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
+        <PhoneIcon color="primary" />
+        <Typography
+          component="a"
+          href="tel:+919876543210"
+          sx={{
+            textDecoration: 'none',
+            color: 'inherit',
+            '&:hover': { textDecoration: 'underline' }
+          }}
+        >
+          +91 98765 43210
         </Typography>
-        <Grid container spacing={4} justifyContent="center" textAlign="center">
-          <Grid item xs={12} sm={6} md={3}>
-            <PhoneIcon color="primary" /> <Typography component="span">+91 98765 43210</Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <EmailIcon color="primary" /> <Typography component="span">support@medalph.com</Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <InstagramIcon color="primary" /> <Typography component="span">@medalph.studio</Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <LinkedInIcon color="primary" /> <Typography component="span">linkedin.com/company/medalph</Typography>
-          </Grid>
-        </Grid>
       </Box>
-    </Box>
-   
+    </Grid>
+
+    <Grid item xs={12} sm={6} md={3}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
+        <EmailIcon color="primary" />
+        <Typography
+          component="a"
+          href="mailto:support@medalph.com"
+          sx={{
+            textDecoration: 'none',
+            color: 'inherit',
+            '&:hover': { textDecoration: 'underline' }
+          }}
+        >
+          support@medalph.com
+        </Typography>
+      </Box>
+    </Grid>
+
+    <Grid item xs={12} sm={6} md={3}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
+        <LinkedInIcon color="primary" />
+        <Typography
+          component="a"
+          href="https://linkedin.com/company/medalph"
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{
+            textDecoration: 'none',
+            color: 'inherit',
+            '&:hover': { textDecoration: 'underline' }
+          }}
+        >
+          linkedin.com/company/medalph
+        </Typography>
+      </Box>
+    </Grid>
+
+  </Grid>
+</Box>
+</Box>
+
+
     );
-  };
+    };
 
 export default Home;
