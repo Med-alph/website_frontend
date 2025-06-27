@@ -11,46 +11,77 @@ import {
   Paper,
 } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PhoneIcon from '@mui/icons-material/Phone';
+import Spotlight from '../components/Spotlight';
+import ShinyText from '../components/ShinyText';
 
 const Contact = () => {
   const [name, setName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  const validateEmail = (email) => {
+    // Basic email regex
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const handleSendMail = () => {
-    const subject = `New Contact Message from ${name}`;
-    const body = `Name: ${name}\nEmail: ${userEmail}\n\nMessage:\n${message}`;
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contact@medalph.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (!name.trim() || !userEmail.trim() || !message.trim()) {
+      alert('Please fill in all fields before sending.');
+      return;
+    }
+
+    if (!validateEmail(userEmail.trim())) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const subject = `New Contact Message from ${name.trim()}`;
+    const body = `Name: ${name.trim()}\nEmail: ${userEmail.trim()}\n\nMessage:\n${message.trim()}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contact@medalph.com&su=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
 
     window.open(gmailUrl, '_blank');
+
+    // Clear form after opening mail
+    setName('');
+    setUserEmail('');
+    setMessage('');
   };
 
   return (
     <Box
       sx={{
         minHeight: '100vh',
-        background: '#0a0a0a',
+        background: 'linear-gradient(135deg, #0c1014, #0c1015, #0d1115, #000000)',
+        color: '#ffffff',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        py: 8,
+        py: 10,
         px: 2,
+        position: 'relative',
+        overflow: 'hidden',
         fontFamily: 'Segoe UI, sans-serif',
       }}
     >
-      <Container maxWidth="sm">
+      {/* Spotlight Background */}
+      <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+        <Spotlight />
+      </Box>
+
+      <Container maxWidth="sm" sx={{ position: 'relative', zIndex: 1 }}>
         <Paper
-          elevation={8}
+          elevation={10}
           sx={{
-            p: 4,
+            p: 5,
             borderRadius: 4,
             background: '#121212',
             backdropFilter: 'blur(10px)',
             border: '1px solid rgba(255, 255, 255, 0.1)',
-            color: '#fff',
+            boxShadow: '0 0 25px rgba(177, 142, 255, 0.08)',
           }}
         >
           <Typography
@@ -58,19 +89,13 @@ const Contact = () => {
             fontWeight="bold"
             gutterBottom
             textAlign="center"
-            sx={{ color: '#fff' }}
+            sx={{ color: '#b18eff' }}
           >
-            Get in Touch
+            <ShinyText text="GET IN TOUCH" disabled={false} speed={20} />
           </Typography>
 
-          <Typography
-            variant="body1"
-            mb={4}
-            textAlign="center"
-            sx={{ color: '#ccc' }}
-          >
-            Have questions or want to start a project?
-            <br />
+          <Typography variant="body1" mb={4} textAlign="center" sx={{ color: '#ccc' }}>
+            Have questions or want to start a project? <br />
             We’d love to hear from you.
           </Typography>
 
@@ -83,12 +108,17 @@ const Contact = () => {
               onChange={(e) => setName(e.target.value)}
               InputProps={{
                 style: {
-                  borderRadius: 10,
+                  borderRadius: 12,
                   background: '#1e1e1e',
                   color: '#fff',
                 },
               }}
               InputLabelProps={{ style: { color: '#ccc' } }}
+              sx={{
+                '& .MuiOutlinedInput-root.Mui-focused': {
+                  boxShadow: '0 0 8px 2px #b18eff',
+                },
+              }}
             />
             <TextField
               placeholder="Your Email"
@@ -98,29 +128,39 @@ const Contact = () => {
               onChange={(e) => setUserEmail(e.target.value)}
               InputProps={{
                 style: {
-                  borderRadius: 10,
+                  borderRadius: 12,
                   background: '#1e1e1e',
                   color: '#fff',
                 },
               }}
               InputLabelProps={{ style: { color: '#ccc' } }}
+              sx={{
+                '& .MuiOutlinedInput-root.Mui-focused': {
+                  boxShadow: '0 0 8px 2px #b18eff',
+                },
+              }}
             />
             <TextField
               placeholder="Your Message"
               variant="outlined"
               fullWidth
               multiline
-              rows={3}
+              rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               InputProps={{
                 style: {
-                  borderRadius: 10,
+                  borderRadius: 12,
                   background: '#1e1e1e',
                   color: '#fff',
                 },
               }}
               InputLabelProps={{ style: { color: '#ccc' } }}
+              sx={{
+                '& .MuiOutlinedInput-root.Mui-focused': {
+                  boxShadow: '0 0 8px 2px #b18eff',
+                },
+              }}
             />
             <Button
               variant="contained"
@@ -129,16 +169,17 @@ const Contact = () => {
               sx={{
                 mt: 1,
                 borderRadius: 2,
-                backgroundColor: 'orange',
+                backgroundColor: '#b18eff',
                 color: '#0a0a0a',
                 fontWeight: 'bold',
                 textTransform: 'none',
-                boxShadow: '0 4px 15px rgba(255, 165, 0, 0.4)',
+                boxShadow: '0 4px 15px rgba(177, 142, 255, 0.4)',
                 '&:hover': {
-                  backgroundColor: '#cc8400',
-                  boxShadow: '0 6px 20px rgba(255, 165, 0, 0.6)',
+                  backgroundColor: '#a06bff',
+                  boxShadow: '0 6px 20px rgba(177, 142, 255, 0.6)',
                 },
               }}
+              type="button"
             >
               Send Message
             </Button>
@@ -147,10 +188,9 @@ const Contact = () => {
           <Grid container justifyContent="center" spacing={2} mt={4}>
             <Grid item>
               <Stack direction="row" spacing={1} alignItems="center">
-                <PhoneIcon sx={{ color: 'orange' }} fontSize="small" />
+                <PhoneIcon sx={{ color: '#b18eff' }} fontSize="small" />
                 <Link
                   href="tel:+919876543210"
-                  color="inherit"
                   underline="hover"
                   sx={{ fontWeight: 500, color: '#ccc' }}
                 >
@@ -160,10 +200,9 @@ const Contact = () => {
             </Grid>
             <Grid item>
               <Stack direction="row" spacing={1} alignItems="center">
-                <EmailIcon sx={{ color: 'orange' }} fontSize="small" />
+                <EmailIcon sx={{ color: '#b18eff' }} fontSize="small" />
                 <Link
                   href="mailto:contact@medalph.com"
-                  color="inherit"
                   underline="hover"
                   sx={{ fontWeight: 500, color: '#ccc' }}
                 >
@@ -173,12 +212,11 @@ const Contact = () => {
             </Grid>
             <Grid item>
               <Stack direction="row" spacing={1} alignItems="center">
-                <LinkedInIcon sx={{ color: 'orange' }} fontSize="small" />
+                <LinkedInIcon sx={{ color: '#b18eff' }} fontSize="small" />
                 <Link
                   href="https://linkedin.com/company/medalph"
                   target="_blank"
                   rel="noopener noreferrer"
-                  color="inherit"
                   underline="hover"
                   sx={{ fontWeight: 500, color: '#ccc' }}
                 >
@@ -188,8 +226,13 @@ const Contact = () => {
             </Grid>
           </Grid>
 
-          <Typography variant="body2" mt={6} textAlign="center" sx={{ color: '#999' }}>
-            Building the web with passion ❤️
+          <Typography
+            variant="body2"
+            mt={6}
+            textAlign="center"
+            sx={{ color: '#666', fontStyle: 'italic' }}
+          >
+            Building the web with precision & creativity.
           </Typography>
         </Paper>
       </Container>

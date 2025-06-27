@@ -1,133 +1,138 @@
 import React from 'react';
-import {
-  Box,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  Button,
-} from '@mui/material';
+import { Box, Typography, Divider } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import ScrollVelocity from '../components/ScrollVelocity';
+import ShinyText from '../components/ShinyText';
+import Button from '../components/Button'; // Custom styled button
 
 const blogPosts = [
   {
-    title: "Why Every Business Needs a Website in 2025",
+    title: 'Why Every Business Needs a Website in 2025',
     content:
-      "A strong online presence is no longer optional. Learn why your business should invest in a well-designed website...",
-    link: "#",
+      'A strong online presence is no longer optional. Learn why your business should invest in a well-designed website...',
+    link: '/post/why-website-2025',
   },
   {
-    title: "Top UI/UX Trends That Will Dominate",
+    title: 'Top UI/UX Trends That Will Dominate',
     content:
-      "From neumorphism to dark mode, we explore the hottest design trends in modern user interfaces...",
-    link: "#",
+      'From neumorphism to dark mode, we explore the hottest design trends in modern user interfaces...',
+    link: '/post/uiux-trends',
   },
   {
-    title: "SEO Basics for Your Website",
+    title: 'SEO Basics for Your Website',
     content:
-      "Learn the fundamental SEO techniques to improve your website’s visibility and ranking on search engines...",
-    link: "#",
+      'Learn the fundamental SEO techniques to improve your website’s visibility and ranking on search engines...',
+    link: '/post/seo-basics',
   },
 ];
 
 const Blog = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
-        backgroundColor: '#0a0a0a',
+        background: `linear-gradient(135deg, #0c1014, #0c1015, #0d1115, #000000)`,
         color: '#fff',
-        py: 8,
-        px: { xs: 3, sm: 8, md: 12 },
-        fontFamily: 'Segoe UI, sans-serif',
+        py: 10,
+        px: 2,
         minHeight: '100vh',
-        textAlign: 'center',
       }}
     >
-      {/* Header */}
-      <Typography
-        variant="h4"
-        sx={{
-          fontWeight: 900,
-          borderBottom: '3px solid orange',
-          width: 'fit-content',
-          margin: '0 auto 32px auto',
-          padding: '4px 12px',
-        }}
-      >
-        Our Blog
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        sx={{
-          opacity: 0.75,
-          maxWidth: 600,
-          margin: '0 auto 48px auto',
-          fontWeight: 400,
-          letterSpacing: '0.02em',
-        }}
-      >
-        Insights, tips, and trends from the world of web development and design.
-      </Typography>
+      <Box sx={{ maxWidth: '1000px', mx: 'auto', px: { xs: 2, sm: 4 } }}>
+        {/* ScrollVelocity Heading */}
+        <Box
+          sx={{
+            width: '100vw',
+            position: 'relative',
+            left: '50%',
+            right: '50%',
+            marginLeft: '-50vw',
+            marginRight: '-50vw',
+            mb: 4,
+          }}
+        >
+          <ScrollVelocity
+            texts={[
+              'Explore ',
+              <span style={{ color: '#b18eff', marginRight: '1rem' }}>Our Blogs</span>,
+            ]}
+            velocity={90}
+            className="custom-scroll-text"
+          />
+        </Box>
 
-      {/* Blog Posts Grid */}
-      <Grid container spacing={5} justifyContent="center">
-        {blogPosts.map((post, i) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            key={i}
-            sx={{ display: 'flex', justifyContent: 'center' }}
-          >
-            <Card
+        {/* Subtitle */}
+        <Typography
+          variant="subtitle1"
+          align="center"
+          sx={{
+            color: '#ccc',
+            maxWidth: 800,
+            mx: 'auto',
+            mt: 2,
+            mb: 8,
+            fontSize: '1.1rem',
+            lineHeight: 1.6,
+          }}
+        >
+          Insights, tips, and trends from the world of web development and design.
+        </Typography>
+
+        {/* Blog Cards */}
+        {blogPosts.map((post, index) => (
+          <React.Fragment key={index}>
+            <Box
               sx={{
-                backgroundColor: '#121212',
-                color: '#fff',
-                maxWidth: 360,
-                borderRadius: 3,
-                boxShadow: '0 0 0 1px rgba(255,255,255,0.05)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
+                mb: 6,
                 p: 3,
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                borderRadius: 4,
+                backgroundColor: '#121212',
+                boxShadow: '0 0 15px rgba(177, 142, 255, 0.08)',
+                transition: 'all 0.3s ease',
                 '&:hover': {
-                  transform: 'translateY(-5px)',
-                  boxShadow: '0 10px 20px rgba(0,0,0,0.3)',
+                  boxShadow: '0 8px 30px rgba(177, 142, 255, 0.15)',
                 },
               }}
             >
-              <CardContent sx={{ px: 0 }}>
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
-                  {post.title}
-                </Typography>
-                <Typography sx={{ fontSize: 15, color: '#ccc', mb: 3 }}>
-                  {post.content}
-                </Typography>
-                <Button
-                  href={post.link}
-                  variant="contained"
-                  size="medium"
-                  sx={{
-                    backgroundColor: 'orange',
-                    color: '#0a0a0a',
-                    fontWeight: 700,
-                    borderRadius: 2,
-                    textTransform: 'capitalize',
-                    boxShadow: '0 4px 15px rgba(255, 165, 0, 0.4)',
-                    '&:hover': {
-                      backgroundColor: '#cc8400',
-                      boxShadow: '0 6px 20px rgba(255, 165, 0, 0.6)',
-                    },
-                  }}
-                >
-                  Read More
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 700,
+                  mb: 1,
+                  fontSize: '1.6rem',
+                  color: '#b18eff',
+                }}
+              >
+                {post.title}
+              </Typography>
+
+              <Typography
+                sx={{
+                  color: '#ccc',
+                  lineHeight: 1.8,
+                  fontSize: '1.05rem',
+                  mb: 4,
+                }}
+              >
+                {post.content}
+              </Typography>
+
+              <Box textAlign="left">
+                <Button onClick={() => navigate(post.link)}>Read More</Button>
+              </Box>
+            </Box>
+
+            {/* Divider under each card */}
+            <Divider
+              sx={{
+                mb: 6,
+                borderColor: 'rgba(255,255,255,0.1)',
+              }}
+            />
+          </React.Fragment>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 };
