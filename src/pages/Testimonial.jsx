@@ -8,26 +8,26 @@ import ScrollVelocity from "../components/ScrollVelocity";
 
 const testimonials = [
   {
-    name: "John Doe",
-    designation: "CEO",
+    name: "Sarath Chandran",
+    designation: "Co-Founder",
     quote:
-      "Medalph built our website in record time with stunning design and flawless performance. Highly recommended!",
-    image: "images/test1.jpg",
+      "Medalph is our vision turned into reality. We strive to build lean, impactful products that make a difference.",
+    image: "/images/sarath.jpg",
   },
   {
-    name: "Jane Smith",
-    designation: "Founder",
+    name: "Geffrey",
+    designation: "Co-Founder",
     quote:
-      "Their UI/UX work was top-notch. We saw an immediate improvement in user engagement after launch.",
-    image: "/images/test2.jpg",
+      "At Medalph, we focus on blending innovation with simplicity. Our goal is to deliver scalable and user-friendly solutions.",
+    image: "/images/geffrey.jpg",
   },
   {
-    name: "Alice Johnson",
-    designation: "Manager",
+    name: "Kamaal",
+    designation: "Lead Developer",
     quote:
-      "From planning to deployment, the Medalph team handled everything professionally. True web experts!",
-    image: "/images/test3.jpeg",
-  },
+      "Working at Medalph has been an exciting journey. Every project is a chance to push boundaries and deliver excellence.",
+    image: "/images/kamal.jpg",
+  }  
 ];
 
 const Testimonial = () => {
