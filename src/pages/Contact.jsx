@@ -115,9 +115,7 @@ const Contact = () => {
           </Typography>
 
           <Typography variant="body1" mb={4} textAlign="center" sx={{ color: '#ccc' }}>
-            See how Medalph EMR can streamline your clinic's documentation workflow. 
-            <br />
-            Schedule a demo to get started.
+            Request a demo to see how Medalph EMR can support your clinic's clinical documentation needs.
           </Typography>
 
           <Stack component="form" spacing={2} onSubmit={(e) => { e.preventDefault(); handleSendMail(); }}>
@@ -260,7 +258,7 @@ const Contact = () => {
             textAlign="center"
             sx={{ color: '#666', fontStyle: 'italic' }}
           >
-            Building EMR software that clinics actually want to use.
+            Clinical documentation software for clinics.
           </Typography>
         </Paper>
       </Container>

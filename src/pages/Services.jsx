@@ -32,25 +32,25 @@ const features = [
     icon: <DescriptionIcon sx={{ fontSize: 40, color: '#b18eff' }} />,
     title: 'Clinical Documentation',
     description:
-      'Streamlined patient record entry with templates designed by clinicians. Document visits, diagnoses, and treatment plans quickly and accurately.',
+      'Document patient visits, diagnoses, and treatment plans efficiently with templates designed for clinical workflows.',
   },
   {
     icon: <AccessTimeIcon sx={{ fontSize: 40, color: '#b18eff' }} />,
-    title: 'Time-Saving Workflows',
+    title: 'Efficient Workflows',
     description:
-      'Reduce documentation time with smart forms, auto-populated fields, and quick-access templates. See more patients without working longer hours.',
+      'Reduce documentation time with streamlined forms and templates. Support clinic operations without extending work hours.',
   },
   {
     icon: <PeopleIcon sx={{ fontSize: 40, color: '#b18eff' }} />,
-    title: 'Patient Management',
+    title: 'Patient Record Management',
     description:
-      'Complete patient profiles with medical history, prescriptions, lab results, and appointment scheduling all in one integrated system.',
+      'Maintain complete patient profiles including medical history, prescriptions, lab results, and appointment information in one system.',
   },
   {
     icon: <AssessmentIcon sx={{ fontSize: 40, color: '#b18eff' }} />,
-    title: 'Clinical Reports & Analytics',
+    title: 'Clinical Reporting',
     description:
-      'Generate reports, track patient outcomes, and analyze clinic performance with built-in reporting tools designed for healthcare providers.',
+      'Generate clinical reports and track patient information using reporting tools designed for healthcare providers.',
   },
 ];
 
@@ -136,7 +136,7 @@ const Services = () => {
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
           }}
         >
-          Clinical Documentation Software Features
+          EMR Features for Clinical Documentation
         </Typography>
         <Typography
           variant="body1"
@@ -149,8 +149,8 @@ const Services = () => {
             lineHeight: 1.7,
           }}
         >
-          Medalph EMR provides essential features designed to streamline clinical documentation 
-          and improve workflow efficiency for clinics and doctors.
+          Medalph EMR includes features designed to support efficient clinical documentation 
+          and workflow management for clinics and healthcare providers.
         </Typography>
       </motion.div>
 

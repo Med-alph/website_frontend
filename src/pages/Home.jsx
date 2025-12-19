@@ -72,7 +72,7 @@ const Home = () => {
         }}
       >
         <Box sx={{ maxWidth: { xs: '100%', sm: '720px', md: '1000px' }, mx: 'auto' }}>
-          {/* SEO: Single h1 tag optimized for EMR keywords */}
+          {/* SEO: Single h1 tag optimized for "Clinical documentation software for clinics" */}
           <Typography
             component="h1"
             variant="h2"
@@ -85,7 +85,7 @@ const Home = () => {
               px: { xs: 1, sm: 0 },
             }}
           >
-            EMR for Clinics That Saves Time
+            Clinical Documentation Software for Clinics
           </Typography>
 
           {/* Clear value proposition - explains what, who, and pain point */}
@@ -100,7 +100,7 @@ const Home = () => {
               px: { xs: 1, sm: 0 },
             }}
           >
-            Clinical Documentation Software Built for Doctors
+            Reduce Documentation Time, Focus on Patient Care
           </Typography>
 
           <Typography
@@ -116,8 +116,9 @@ const Home = () => {
               mb: 4,
             }}
           >
-            Medalph EMR reduces documentation time and workflow friction so you can focus on patient care. 
-            Built specifically for clinics and doctors who need fast, intuitive clinical documentation.
+            Medalph EMR is electronic medical records software designed for clinics and doctors. 
+            Our system streamlines clinical documentation, reduces data entry time, and eliminates workflow friction 
+            so you can spend more time with patients and less time on paperwork.
           </Typography>
 
           {/* Primary CTA - visually dominant */}
@@ -158,7 +159,7 @@ const Home = () => {
               textAlign: 'center',
             }}
           >
-            Tired of Spending Hours on Documentation?
+            Documentation Time Takes Away from Patient Care
           </Typography>
           <Typography
             variant="body1"
@@ -172,8 +173,9 @@ const Home = () => {
               textAlign: 'center',
             }}
           >
-            Most clinics struggle with slow, clunky EMR systems that add hours to each day. 
-            Doctors spend more time typing than treating patients. Medalph EMR is designed to change that.
+            Many clinics face inefficient EMR systems that require excessive documentation time. 
+            This reduces time available for patient care and creates workflow friction. 
+            Medalph EMR addresses these challenges with streamlined clinical documentation.
           </Typography>
         </Container>
       </Box>
@@ -199,7 +201,7 @@ const Home = () => {
               textAlign: 'center',
             }}
           >
-            What is Medalph EMR?
+            Electronic Medical Records Designed for Clinics
           </Typography>
           <Typography
             variant="body1"
@@ -214,9 +216,9 @@ const Home = () => {
               mb: 4,
             }}
           >
-            Medalph is an electronic medical records system built specifically for clinics and doctors. 
-            Our clinical documentation software streamlines patient records, reduces data entry time, 
-            and eliminates workflow friction so you can see more patients and spend less time on paperwork.
+            Medalph EMR is clinical documentation software built for clinics and doctors. 
+            The system manages patient records, streamlines documentation workflows, and reduces administrative time 
+            so healthcare providers can focus on delivering quality patient care.
           </Typography>
         </Container>
       </Box>
@@ -249,18 +251,18 @@ const Home = () => {
           {[
             {
               icon: <MedicalServicesIcon sx={{ fontSize: { xs: 36, sm: 48 }, color: '#b18eff' }} />,
-              title: 'Fast Patient Documentation',
-              desc: 'Quick-entry forms designed by clinicians, for clinicians. Document visits in minutes, not hours.',
+              title: 'Efficient Clinical Documentation',
+              desc: 'Document patient visits quickly with forms designed for clinical workflows. Reduce documentation time significantly.',
             },
             {
               icon: <SpeedIcon sx={{ fontSize: { xs: 36, sm: 48 }, color: '#b18eff' }} />,
-              title: 'Streamlined Workflows',
-              desc: 'Eliminate redundant data entry. Our EMR integrates patient history, prescriptions, and notes in one place.',
+              title: 'Integrated Patient Records',
+              desc: 'Access patient history, prescriptions, and clinical notes in one system. Eliminate redundant data entry.',
             },
             {
               icon: <SecurityIcon sx={{ fontSize: { xs: 36, sm: 48 }, color: '#b18eff' }} />,
-              title: 'Secure & Compliant',
-              desc: 'Built with healthcare data security in mind. Your patient records are protected and accessible only to authorized staff.',
+              title: 'Secure Data Management',
+              desc: 'Patient records are protected with access controls. Designed with healthcare data security requirements in mind.',
             },
           ].map((card, index) => (
             <Grid key={index} item xs={12} sm={6} md={4}>
@@ -324,22 +326,22 @@ const Home = () => {
           </Typography>
           <Grid container spacing={4} sx={{ mt: 2 }}>
             {[
-              {
-                title: 'Reduce Documentation Time',
-                desc: 'Spend less time on paperwork and more time with patients. Our intuitive interface cuts documentation time significantly.',
-              },
-              {
-                title: 'Improve Patient Flow',
-                desc: 'Faster documentation means shorter wait times and more patients seen per day.',
-              },
-              {
-                title: 'Better Care Coordination',
-                desc: 'All patient information in one place. Share records securely with your team for better care decisions.',
-              },
-              {
-                title: 'Easy to Learn',
-                desc: 'No extensive training required. Our EMR is designed to be intuitive for doctors and clinic staff.',
-              },
+            {
+              title: 'Reduce Documentation Time',
+              desc: 'Streamlined workflows reduce time spent on clinical documentation, allowing more time for patient care.',
+            },
+            {
+              title: 'Improve Clinic Efficiency',
+              desc: 'Faster documentation processes help clinics manage patient flow more effectively.',
+            },
+            {
+              title: 'Centralized Patient Records',
+              desc: 'All patient information accessible in one system, supporting better care coordination among clinic staff.',
+            },
+            {
+              title: 'Intuitive Interface',
+              desc: 'Designed for ease of use, requiring minimal training for doctors and clinic staff.',
+            },
             ].map((benefit, index) => (
               <Grid key={index} item xs={12} sm={6}>
                 <Box sx={{ p: 3, borderRadius: 2, bgcolor: 'rgba(177, 142, 255, 0.05)' }}>
@@ -382,7 +384,7 @@ const Home = () => {
               textAlign: 'center',
             }}
           >
-            Built for Healthcare Security & Privacy
+            Privacy and Security for Healthcare Data
           </Typography>
           <Box
             sx={{
@@ -401,10 +403,9 @@ const Home = () => {
                 textAlign: 'center',
               }}
             >
-              Medalph EMR is designed with healthcare data security as a priority. We understand the sensitive nature 
-              of patient information and have built our system with privacy-first principles. Your clinic's data is 
-              encrypted, access-controlled, and stored securely. While we don't claim specific certifications, we are 
-              committed to maintaining the highest standards of data protection and regulatory awareness for healthcare environments.
+              Medalph EMR is built with healthcare data security and privacy as foundational principles. 
+              Patient information is encrypted, access is controlled, and data storage follows security best practices. 
+              We maintain awareness of healthcare regulatory requirements and design our systems accordingly.
             </Typography>
           </Box>
         </Container>
@@ -437,7 +438,7 @@ const Home = () => {
             fontSize: { xs: '1.5rem', sm: '1.75rem' },
           }}
         >
-          Ready to Streamline Your Clinic's Documentation?
+          See How Medalph EMR Works for Your Clinic
         </Typography>
         <Typography
           variant="body1"
@@ -448,8 +449,7 @@ const Home = () => {
             lineHeight: 1.6,
           }}
         >
-          See how Medalph EMR can reduce documentation time and improve your clinic's workflow. 
-          Request a demo to get started.
+          Request a demo to see how Medalph EMR can reduce documentation time and improve your clinic's workflow.
         </Typography>
         <Button
           onClick={handleRequestDemo}

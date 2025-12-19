@@ -102,7 +102,7 @@ const About = () => {
               mb: 3,
             }}
           >
-            Building EMR Software That Clinics Actually Want to Use
+            Clinical Documentation Software for Clinics
           </Typography>
           <Typography
             variant="body1"
@@ -114,9 +114,8 @@ const About = () => {
               lineHeight: 1.7,
             }}
           >
-            Medalph was founded to solve a real problem: doctors spending too much time on documentation 
-            and not enough time with patients. We build clinical documentation software that's fast, intuitive, 
-            and designed specifically for clinics and healthcare providers.
+            Medalph develops EMR software designed to address documentation challenges in clinical settings. 
+            Our clinical documentation software focuses on efficiency and ease of use for clinics and healthcare providers.
           </Typography>
         </Box>
 
@@ -175,9 +174,8 @@ const About = () => {
                 mb: 3,
               }}
             >
-              Medalph EMR is built by a team that understands healthcare workflows. We've seen firsthand 
-              how inefficient documentation systems slow down clinics and frustrate doctors. Our mission is 
-              to create EMR software that actually makes clinical work easier, not harder.
+              Medalph EMR is developed by a team focused on healthcare workflows. We understand the challenges 
+              clinics face with documentation systems and aim to create EMR software that supports efficient clinical operations.
             </Typography>
             <Typography
               variant="body1"
@@ -188,8 +186,8 @@ const About = () => {
                 mb: 3,
               }}
             >
-              We focus on simplicity, speed, and security. Every feature in Medalph EMR is designed to 
-              reduce documentation time, eliminate workflow friction, and help clinics provide better patient care.
+              Our approach emphasizes efficiency, usability, and security. Features in Medalph EMR are designed 
+              to reduce documentation time, minimize workflow friction, and support quality patient care delivery.
             </Typography>
             <Typography
               variant="body1"
@@ -200,8 +198,8 @@ const About = () => {
                 mb: 4,
               }}
             >
-              Whether you're a small clinic or a larger practice, Medalph EMR adapts to your needs. 
-              We're committed to building software that clinics actually want to use.
+              Medalph EMR is designed to support clinics of various sizes, adapting to different practice needs 
+              and workflow requirements.
             </Typography>
 
             <Box style={{ marginTop: '2.5rem' }}>
