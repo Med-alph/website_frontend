@@ -18,10 +18,10 @@ import ShinyText from '../components/ShinyText';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 /**
- * Contact Page - Request Demo for Medalph EMR
+ * Contact Page - Request Demo for Medalph Platform
  * 
  * SEO & UX Improvements:
- * - EMR-focused messaging
+ * - Platform-level messaging (medical software company)
  * - Clear CTA for demo requests
  * - Semantic HTML structure
  * - Proper heading hierarchy
@@ -32,10 +32,10 @@ const Contact = () => {
   const [userEmail, setUserEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  // SEO: Dynamic page title and meta description
+  // SEO: Dynamic page title and meta description - Platform positioning
   usePageTitle(
-    'Request Demo - Medalph EMR | Contact Us',
-    'Request a demo of Medalph EMR clinical documentation software. See how we can streamline your clinic\'s documentation workflow and reduce documentation time.'
+    'Request Demo - Medalph Medical Software | Contact Us',
+    'Request a demo of Medalph medical software platform. See how our healthcare management solutions can improve clinical workflows and operational efficiency for your clinic or hospital.'
   );
 
   const validateEmail = (email) => {
@@ -115,7 +115,7 @@ const Contact = () => {
           </Typography>
 
           <Typography variant="body1" mb={4} textAlign="center" sx={{ color: '#ccc' }}>
-            Request a demo to see how Medalph EMR can support your clinic's clinical documentation needs.
+            Request a demo to see how Medalph medical software can support your clinic or hospital's healthcare management needs.
           </Typography>
 
           <Stack component="form" spacing={2} onSubmit={(e) => { e.preventDefault(); handleSendMail(); }}>
@@ -258,7 +258,7 @@ const Contact = () => {
             textAlign="center"
             sx={{ color: '#666', fontStyle: 'italic' }}
           >
-            Clinical documentation software for clinics.
+            Medical software for healthcare providers.
           </Typography>
         </Paper>
       </Container>

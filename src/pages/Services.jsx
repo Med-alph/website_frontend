@@ -19,10 +19,10 @@ import Button from '../components/Button';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 /**
- * Services Page - EMR Features
+ * Services Page - Medalph Platform Capabilities
  * 
  * SEO & UX Improvements:
- * - Focused on EMR features, not web development
+ * - Platform-level positioning (medical software capabilities)
  * - Clear headings hierarchy (h1 → h2 → h3)
  * - Semantic HTML structure
  * - Standardized CTA
@@ -72,10 +72,10 @@ const Services = () => {
   const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
   const navigate = useNavigate();
 
-  // SEO: Dynamic page title and meta description
+  // SEO: Dynamic page title and meta description - Platform capabilities
   usePageTitle(
-    'EMR Features - Clinical Documentation Software | Medalph EMR',
-    'Explore Medalph EMR features: clinical documentation, time-saving workflows, patient management, and clinical reports. Built for clinics and doctors.'
+    'Medical Software Capabilities | Medalph Platform',
+    'Explore Medalph medical software capabilities: clinical documentation, patient management, healthcare workflows, and clinical reporting. Built for clinics and healthcare providers.'
   );
 
   const handleRequestDemo = () => {
@@ -136,7 +136,7 @@ const Services = () => {
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
           }}
         >
-          EMR Features for Clinical Documentation
+          Medical Software Capabilities
         </Typography>
         <Typography
           variant="body1"
@@ -149,8 +149,8 @@ const Services = () => {
             lineHeight: 1.7,
           }}
         >
-          Medalph EMR includes features designed to support efficient clinical documentation 
-          and workflow management for clinics and healthcare providers.
+          Medalph medical software platform includes capabilities designed to support 
+          clinical workflows and operational management for clinics, hospitals, and healthcare teams.
         </Typography>
       </motion.div>
 
@@ -220,7 +220,7 @@ const Services = () => {
             fontSize: { xs: '1.3rem', sm: '1.5rem' },
           }}
         >
-          Want to See These Features in Action?
+          See How Medalph Platform Works for Your Practice
         </Typography>
         <Button onClick={handleRequestDemo} sx={{ fontSize: { xs: '1rem', sm: '1.1rem' }, px: 5, py: 1.5 }}>
           Request Demo

@@ -9,10 +9,10 @@ import ScrollVelocity from '../components/ScrollVelocity';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 /**
- * About Page - Medalph EMR Company
+ * About Page - Medalph Medical Software Company
  * 
  * SEO & UX Improvements:
- * - EMR-focused company messaging
+ * - Platform-level company positioning (medical software company)
  * - Clear explanation of who Medalph is and what they do
  * - Semantic HTML structure
  * - Proper heading hierarchy
@@ -22,10 +22,10 @@ import { usePageTitle } from '../hooks/usePageTitle';
 const About = () => {
   const navigate = useNavigate();
 
-  // SEO: Dynamic page title and meta description
+  // SEO: Dynamic page title and meta description - Platform company positioning
   usePageTitle(
-    'About Medalph EMR - Building EMR Software for Clinics',
-    'Learn about Medalph EMR and our mission to build clinical documentation software that clinics actually want to use. Reducing documentation time for doctors.'
+    'About Medalph - Medical Software Company for Healthcare Providers',
+    'Learn about Medalph, a medical software company providing healthcare management solutions for clinics, hospitals, and healthcare teams.'
   );
 
   const handleRequestDemo = () => {
@@ -81,7 +81,7 @@ const About = () => {
             texts={[
               'About ',
               <span key="highlight" style={{ color: '#b18eff', marginRight: '1rem' }}>
-                Medalph EMR
+                Medalph
               </span>,
             ]}
             velocity={90}
@@ -102,7 +102,7 @@ const About = () => {
               mb: 3,
             }}
           >
-            Clinical Documentation Software for Clinics
+            Medical Software Company for Healthcare Providers
           </Typography>
           <Typography
             variant="body1"
@@ -114,8 +114,8 @@ const About = () => {
               lineHeight: 1.7,
             }}
           >
-            Medalph develops EMR software designed to address documentation challenges in clinical settings. 
-            Our clinical documentation software focuses on efficiency and ease of use for clinics and healthcare providers.
+            Medalph is a medical software company providing healthcare management solutions for clinics, hospitals, and healthcare teams. 
+            We develop software platforms that improve clinical workflows and operational efficiency for healthcare providers.
           </Typography>
         </Box>
 
@@ -138,7 +138,7 @@ const About = () => {
             <Box
               component="img"
               src={TeamImage}
-              alt="Medalph EMR team working on clinical documentation software development"
+              alt="Medalph medical software development team"
               loading="lazy"
               sx={{
                 width: { xs: '100%', md: '100%' },
@@ -174,8 +174,8 @@ const About = () => {
                 mb: 3,
               }}
             >
-              Medalph EMR is developed by a team focused on healthcare workflows. We understand the challenges 
-              clinics face with documentation systems and aim to create EMR software that supports efficient clinical operations.
+              Medalph is developed by a team focused on healthcare technology. We understand the operational and clinical challenges 
+              that clinics and hospitals face, and we build medical software solutions that support efficient healthcare delivery.
             </Typography>
             <Typography
               variant="body1"
@@ -186,8 +186,8 @@ const About = () => {
                 mb: 3,
               }}
             >
-              Our approach emphasizes efficiency, usability, and security. Features in Medalph EMR are designed 
-              to reduce documentation time, minimize workflow friction, and support quality patient care delivery.
+              Our approach emphasizes practical solutions, usability, and security. Medalph platform capabilities are designed 
+              to improve clinical workflows, enhance operational efficiency, and support quality patient care delivery.
             </Typography>
             <Typography
               variant="body1"
@@ -198,8 +198,8 @@ const About = () => {
                 mb: 4,
               }}
             >
-              Medalph EMR is designed to support clinics of various sizes, adapting to different practice needs 
-              and workflow requirements.
+              Medalph medical software is designed to support healthcare providers of various sizes, from small clinics 
+              to larger hospital systems, adapting to different practice needs and operational requirements.
             </Typography>
 
             <Box style={{ marginTop: '2.5rem' }}>

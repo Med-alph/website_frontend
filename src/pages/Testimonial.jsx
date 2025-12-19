@@ -21,21 +21,21 @@ const testimonials = [
     name: "Sarath Chandran",
     designation: "Co-Founder",
     quote:
-      "Medalph EMR is our vision turned into reality. We strive to build lean, impactful EMR software that makes a real difference for clinics and doctors.",
+      "Medalph is our vision turned into reality. We strive to build medical software solutions that make a real difference for clinics, hospitals, and healthcare teams.",
     image: "/images/sarath.jpg",
   },
   {
     name: "Geffrey",
     designation: "Co-Founder",
     quote:
-      "At Medalph, we focus on blending innovation with simplicity. Our goal is to deliver scalable and user-friendly clinical documentation software.",
+      "At Medalph, we focus on blending innovation with practicality. Our goal is to deliver scalable and user-friendly healthcare management software.",
     image: "/images/geffrey.jpg",
   },
   {
     name: "Kamaal",
     designation: "Lead Developer",
     quote:
-      "Working at Medalph has been an exciting journey. Every feature we build is designed to reduce documentation time and improve clinic workflows.",
+      "Working at Medalph has been an exciting journey. Every capability we build is designed to improve clinical workflows and operational efficiency for healthcare providers.",
     image: "/images/kamal.jpg",
   }  
 ];
@@ -43,10 +43,10 @@ const testimonials = [
 const Testimonial = () => {
   const [active, setActive] = useState(0);
 
-  // SEO: Dynamic page title and meta description
+  // SEO: Dynamic page title and meta description - Platform company positioning
   usePageTitle(
-    'Meet the Team - Medalph EMR',
-    'Meet the Medalph EMR team building clinical documentation software for clinics and doctors.'
+    'Meet the Team - Medalph Medical Software',
+    'Meet the Medalph team building medical software solutions for clinics, hospitals, and healthcare providers.'
   );
 
   const handleNext = () => {
@@ -129,7 +129,7 @@ const Testimonial = () => {
             <motion.img
               key={testimonials[active].image}
               src={testimonials[active].image}
-              alt={`${testimonials[active].name}, ${testimonials[active].designation} at Medalph EMR`}
+              alt={`${testimonials[active].name}, ${testimonials[active].designation} at Medalph medical software company`}
               loading="lazy"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}

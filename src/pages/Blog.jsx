@@ -15,32 +15,32 @@ import { usePageTitle } from '../hooks/usePageTitle';
  */
 const blogPosts = [
   {
-    title: 'How to Reduce Clinical Documentation Time',
+    title: 'Improving Clinical Workflows with Medical Software',
     content:
-      'Learn practical strategies for cutting documentation time in your clinic. From template optimization to workflow improvements, discover how modern EMR systems can help doctors spend more time with patients.',
-    link: '/post/reduce-documentation-time',
+      'Learn how medical software platforms can streamline clinical processes in your clinic or hospital. From workflow optimization to operational efficiency, discover how healthcare management software supports better patient care delivery.',
+    link: '/post/improving-clinical-workflows',
   },
   {
-    title: 'Choosing the Right EMR for Your Clinic',
+    title: 'Choosing Healthcare Management Software for Your Practice',
     content:
-      'What to look for when selecting an electronic medical records system. Key features, ease of use, and workflow considerations that matter most for clinics and healthcare providers.',
-    link: '/post/choosing-emr',
+      'What to consider when selecting medical software for your clinic or hospital. Key capabilities, integration requirements, and operational considerations that matter most for healthcare providers.',
+    link: '/post/choosing-healthcare-software',
   },
   {
-    title: 'Improving Clinic Workflow with EMR Software',
+    title: 'Enhancing Operational Efficiency in Healthcare Settings',
     content:
-      'Explore how the right clinical documentation software can streamline your clinic\'s operations. From patient scheduling to record management, see how EMR systems improve efficiency.',
-    link: '/post/improving-workflow',
+      'Explore how integrated medical software platforms can improve clinic and hospital operations. From patient management to administrative workflows, see how healthcare software supports efficient practice management.',
+    link: '/post/operational-efficiency',
   },
 ];
 
 const Blog = () => {
   const navigate = useNavigate();
 
-  // SEO: Dynamic page title and meta description
+  // SEO: Dynamic page title and meta description - Platform positioning
   usePageTitle(
-    'EMR Insights & Healthcare Tips | Medalph EMR Blog',
-    'Resources for clinics and healthcare providers. Insights, tips, and best practices for clinical documentation and EMR software.'
+    'Healthcare Software Insights | Medalph Blog',
+    'Resources for clinics and healthcare providers. Insights, tips, and best practices for medical software and healthcare management.'
   );
 
   return (
@@ -69,9 +69,9 @@ const Blog = () => {
         >
           <ScrollVelocity
             texts={[
-              'EMR Insights & ',
+              'Healthcare Software ',
               <span key="highlight" style={{ color: '#b18eff', marginRight: '1rem' }}>
-                Healthcare Tips
+                Insights
               </span>,
             ]}
             velocity={90}
@@ -94,7 +94,7 @@ const Blog = () => {
             fontWeight: 600,
           }}
         >
-          Resources for Clinics & Healthcare Providers
+          Resources for Healthcare Providers
         </Typography>
         <Typography
           variant="subtitle1"
@@ -109,7 +109,7 @@ const Blog = () => {
             lineHeight: 1.6,
           }}
         >
-          Insights, tips, and best practices for clinical documentation and EMR software.
+          Insights, tips, and best practices for medical software and healthcare management.
         </Typography>
 
         {/* Blog Cards */}

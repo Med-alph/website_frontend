@@ -13,12 +13,12 @@ import ShinyText from '../components/ShinyText';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 /**
- * Home Page - Medalph EMR
+ * Home Page - Medalph Medical Software Platform
  * 
  * SEO & UX Improvements:
- * - Single h1 tag optimized for "EMR for clinics" / "Clinical documentation software"
- * - Clear value proposition within 5 seconds
- * - Content flow: Problem → Solution → How it works → Benefits → Trust → CTA
+ * - Single h1 tag optimized for "Medical software for clinics" / "Healthcare management software"
+ * - Clear platform positioning (medical software company, not just documentation)
+ * - Content flow: Healthcare Problems → Medalph Platform → Core Capabilities → Benefits → Trust → CTA
  * - Semantic HTML structure (header, main, section)
  * - Standardized CTAs ("Request Demo")
  * - Healthcare trust signals
@@ -28,10 +28,10 @@ const Home = () => {
   const containerRef = useRef(null);
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  // SEO: Dynamic page title and meta description
+  // SEO: Dynamic page title and meta description - Platform-level positioning
   usePageTitle(
-    'Medalph EMR - Clinical Documentation Software for Clinics & Doctors',
-    'Medalph EMR simplifies clinical documentation for clinics and doctors. Reduce documentation time, streamline workflows, and focus on patient care with our intuitive electronic medical records system.'
+    'Medalph - Medical Software for Clinics & Healthcare Providers',
+    'Medalph provides medical software and healthcare management solutions for clinics, hospitals, and healthcare teams. Improve clinical workflows and operational efficiency.'
   );
 
   const handleRequestDemo = () => {
@@ -72,7 +72,7 @@ const Home = () => {
         }}
       >
         <Box sx={{ maxWidth: { xs: '100%', sm: '720px', md: '1000px' }, mx: 'auto' }}>
-          {/* SEO: Single h1 tag optimized for "Clinical documentation software for clinics" */}
+          {/* SEO: Single h1 tag optimized for "Medical software for clinics" / "Healthcare management software" */}
           <Typography
             component="h1"
             variant="h2"
@@ -85,10 +85,10 @@ const Home = () => {
               px: { xs: 1, sm: 0 },
             }}
           >
-            Clinical Documentation Software for Clinics
+            Medical Software for Clinics
           </Typography>
 
-          {/* Clear value proposition - explains what, who, and pain point */}
+          {/* Clear value proposition - Platform positioning: what Medalph does, who it's for */}
           <Typography
             variant="h5"
             component="p"
@@ -100,7 +100,7 @@ const Home = () => {
               px: { xs: 1, sm: 0 },
             }}
           >
-            Reduce Documentation Time, Focus on Patient Care
+            Healthcare Management Software That Improves Clinical Workflows
           </Typography>
 
           <Typography
@@ -116,9 +116,9 @@ const Home = () => {
               mb: 4,
             }}
           >
-            Medalph EMR is electronic medical records software designed for clinics and doctors. 
-            Our system streamlines clinical documentation, reduces data entry time, and eliminates workflow friction 
-            so you can spend more time with patients and less time on paperwork.
+            Medalph provides medical software solutions for clinics, hospitals, and healthcare teams. 
+            Our platform improves clinical workflows and operational efficiency, helping healthcare providers 
+            deliver better patient care while managing their practice more effectively.
           </Typography>
 
           {/* Primary CTA - visually dominant */}
@@ -138,7 +138,7 @@ const Home = () => {
         </Box>
       </Box>
 
-      {/* Problem Section - What pain does it solve */}
+      {/* Healthcare Problems Section - What challenges do clinics face */}
       <Box
         component="section"
         sx={{
@@ -159,7 +159,7 @@ const Home = () => {
               textAlign: 'center',
             }}
           >
-            Documentation Time Takes Away from Patient Care
+            Healthcare Providers Face Complex Operational Challenges
           </Typography>
           <Typography
             variant="body1"
@@ -173,14 +173,14 @@ const Home = () => {
               textAlign: 'center',
             }}
           >
-            Many clinics face inefficient EMR systems that require excessive documentation time. 
-            This reduces time available for patient care and creates workflow friction. 
-            Medalph EMR addresses these challenges with streamlined clinical documentation.
+            Clinics and hospitals struggle with inefficient workflows, documentation burdens, and disconnected systems. 
+            These challenges reduce time available for patient care and create operational friction. 
+            Healthcare teams need integrated software solutions that support both clinical and administrative workflows.
           </Typography>
         </Container>
       </Box>
 
-      {/* Solution Section - What Medalph is */}
+      {/* Medalph Platform Section - What Medalph is and does */}
       <Box
         component="section"
         sx={{
@@ -201,7 +201,7 @@ const Home = () => {
               textAlign: 'center',
             }}
           >
-            Electronic Medical Records Designed for Clinics
+            Medalph: Medical Software Platform for Healthcare Providers
           </Typography>
           <Typography
             variant="body1"
@@ -216,14 +216,14 @@ const Home = () => {
               mb: 4,
             }}
           >
-            Medalph EMR is clinical documentation software built for clinics and doctors. 
-            The system manages patient records, streamlines documentation workflows, and reduces administrative time 
-            so healthcare providers can focus on delivering quality patient care.
+            Medalph is a medical software company providing healthcare management solutions for clinics, hospitals, and healthcare teams. 
+            Our platform includes clinical documentation, patient management, and operational tools designed to improve 
+            both clinical workflows and practice efficiency. We build software that supports healthcare providers in delivering quality care.
           </Typography>
         </Container>
       </Box>
 
-      {/* How It Works Section */}
+      {/* Core Capabilities Section - What the platform includes */}
       <Box
         component="section"
         sx={{
@@ -244,25 +244,25 @@ const Home = () => {
             fontSize: { xs: '1.8rem', sm: '2.2rem' },
           }}
         >
-          How Medalph EMR Works
+          Core Capabilities of Medalph Platform
         </Typography>
 
         <Grid container spacing={4} justifyContent="center">
           {[
             {
               icon: <MedicalServicesIcon sx={{ fontSize: { xs: 36, sm: 48 }, color: '#b18eff' }} />,
-              title: 'Efficient Clinical Documentation',
-              desc: 'Document patient visits quickly with forms designed for clinical workflows. Reduce documentation time significantly.',
+              title: 'Clinical Documentation & Records',
+              desc: 'Streamline clinical documentation with tools designed for healthcare workflows. Manage patient records efficiently.',
             },
             {
               icon: <SpeedIcon sx={{ fontSize: { xs: 36, sm: 48 }, color: '#b18eff' }} />,
-              title: 'Integrated Patient Records',
-              desc: 'Access patient history, prescriptions, and clinical notes in one system. Eliminate redundant data entry.',
+              title: 'Patient Management & Workflows',
+              desc: 'Integrated patient management tools support clinical workflows. Access patient information and coordinate care effectively.',
             },
             {
               icon: <SecurityIcon sx={{ fontSize: { xs: 36, sm: 48 }, color: '#b18eff' }} />,
-              title: 'Secure Data Management',
-              desc: 'Patient records are protected with access controls. Designed with healthcare data security requirements in mind.',
+              title: 'Healthcare Data Security',
+              desc: 'Built with healthcare data security and privacy requirements in mind. Secure access controls and data protection.',
             },
           ].map((card, index) => (
             <Grid key={index} item xs={12} sm={6} md={4}>
@@ -327,20 +327,20 @@ const Home = () => {
           <Grid container spacing={4} sx={{ mt: 2 }}>
             {[
             {
-              title: 'Reduce Documentation Time',
-              desc: 'Streamlined workflows reduce time spent on clinical documentation, allowing more time for patient care.',
+              title: 'Improve Clinical Workflows',
+              desc: 'Medical software tools designed to streamline clinical processes and reduce administrative burden.',
             },
             {
-              title: 'Improve Clinic Efficiency',
-              desc: 'Faster documentation processes help clinics manage patient flow more effectively.',
+              title: 'Enhance Operational Efficiency',
+              desc: 'Healthcare management features support efficient clinic operations and better resource utilization.',
             },
             {
-              title: 'Centralized Patient Records',
-              desc: 'All patient information accessible in one system, supporting better care coordination among clinic staff.',
+              title: 'Integrated Healthcare Platform',
+              desc: 'Unified platform connects clinical and administrative functions, supporting coordinated care delivery.',
             },
             {
-              title: 'Intuitive Interface',
-              desc: 'Designed for ease of use, requiring minimal training for doctors and clinic staff.',
+              title: 'Built for Healthcare Teams',
+              desc: 'Designed for healthcare providers, with interfaces and workflows that support clinical practice.',
             },
             ].map((benefit, index) => (
               <Grid key={index} item xs={12} sm={6}>
@@ -438,7 +438,7 @@ const Home = () => {
             fontSize: { xs: '1.5rem', sm: '1.75rem' },
           }}
         >
-          See How Medalph EMR Works for Your Clinic
+          See How Medalph Can Support Your Healthcare Practice
         </Typography>
         <Typography
           variant="body1"
@@ -449,7 +449,7 @@ const Home = () => {
             lineHeight: 1.6,
           }}
         >
-          Request a demo to see how Medalph EMR can reduce documentation time and improve your clinic's workflow.
+          Request a demo to learn how Medalph medical software can improve clinical workflows and operational efficiency for your clinic or hospital.
         </Typography>
         <Button
           onClick={handleRequestDemo}
