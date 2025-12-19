@@ -8,38 +8,49 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import CodeIcon from '@mui/icons-material/Code';
-import DesignIcon from '@mui/icons-material/DesignServices';
-import ShoppingCart from '@mui/icons-material/ShoppingCart';
-import BarChart from '@mui/icons-material/BarChart';
+import DescriptionIcon from '@mui/icons-material/Description';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import PeopleIcon from '@mui/icons-material/People';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 import { motion } from 'framer-motion';
-import ShinyText from '../components/ShinyText';
 import ScrollVelocity from '../components/ScrollVelocity';
+import { useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
+import { usePageTitle } from '../hooks/usePageTitle';
 
+/**
+ * Services Page - EMR Features
+ * 
+ * SEO & UX Improvements:
+ * - Focused on EMR features, not web development
+ * - Clear headings hierarchy (h1 → h2 → h3)
+ * - Semantic HTML structure
+ * - Standardized CTA
+ */
 const features = [
   {
-    icon: <CodeIcon sx={{ fontSize: 40, color: '#b18eff' }} />,
-    title: 'Website Development',
+    icon: <DescriptionIcon sx={{ fontSize: 40, color: '#b18eff' }} />,
+    title: 'Clinical Documentation',
     description:
-      'Custom-built websites designed to be fast, reliable, and fully responsive across all devices, providing a smooth experience for every user.',
+      'Streamlined patient record entry with templates designed by clinicians. Document visits, diagnoses, and treatment plans quickly and accurately.',
   },
   {
-    icon: <DesignIcon sx={{ fontSize: 40, color: '#b18eff' }} />,
-    title: 'UI/UX Design',
+    icon: <AccessTimeIcon sx={{ fontSize: 40, color: '#b18eff' }} />,
+    title: 'Time-Saving Workflows',
     description:
-      'Clean, modern interfaces focused on ease of use and clear navigation, making sure visitors enjoy interacting with your site.',
+      'Reduce documentation time with smart forms, auto-populated fields, and quick-access templates. See more patients without working longer hours.',
   },
   {
-    icon: <ShoppingCart sx={{ fontSize: 40, color: '#b18eff' }} />,
-    title: 'E-commerce Solutions',
+    icon: <PeopleIcon sx={{ fontSize: 40, color: '#b18eff' }} />,
+    title: 'Patient Management',
     description:
-      'Secure, scalable online stores that simplify selling products and managing orders, built to grow alongside your business.',
+      'Complete patient profiles with medical history, prescriptions, lab results, and appointment scheduling all in one integrated system.',
   },
   {
-    icon: <BarChart sx={{ fontSize: 40, color: '#b18eff' }} />,
-    title: 'SEO Optimization',
+    icon: <AssessmentIcon sx={{ fontSize: 40, color: '#b18eff' }} />,
+    title: 'Clinical Reports & Analytics',
     description:
-      'Effective strategies to improve your website’s search engine ranking, helping more people find your business online.',
+      'Generate reports, track patient outcomes, and analyze clinic performance with built-in reporting tools designed for healthcare providers.',
   },
 ];
 
@@ -59,15 +70,28 @@ const cardVariants = {
 const Services = () => {
   const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
+  const navigate = useNavigate();
+
+  // SEO: Dynamic page title and meta description
+  usePageTitle(
+    'EMR Features - Clinical Documentation Software | Medalph EMR',
+    'Explore Medalph EMR features: clinical documentation, time-saving workflows, patient management, and clinical reports. Built for clinics and doctors.'
+  );
+
+  const handleRequestDemo = () => {
+    navigate('/contact');
+  };
 
   return (
     <Box
+      component="main"
       sx={{
         backgroundColor: '#0a0a0a',
         py: 10,
         px: 2,
         textAlign: 'center',
         fontFamily: 'Segoe UI, sans-serif',
+        minHeight: '100vh',
       }}
     >
       {/* Scroll Velocity Banner */}
@@ -84,8 +108,10 @@ const Services = () => {
       >
         <ScrollVelocity
           texts={[
-            'Explore Our ',
-            <span style={{ color: '#b18eff', marginRight: '1rem' }}>Services</span>,
+            'EMR Features for ',
+            <span key="highlight" style={{ color: '#b18eff', marginRight: '1rem' }}>
+              Your Clinic
+            </span>,
           ]}
           velocity={90}
           className="custom-scroll-text"
@@ -99,9 +125,10 @@ const Services = () => {
         transition={{ duration: 0.6 }}
       >
         <Typography
+          component="h1"
           variant="h2"
           sx={{
-            mb: 8,
+            mb: 3,
             color: 'white',
             fontWeight: 900,
             width: 'fit-content',
@@ -109,10 +136,25 @@ const Services = () => {
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
           }}
         >
+          Clinical Documentation Software Features
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            maxWidth: 800,
+            mx: 'auto',
+            mb: 8,
+            color: '#ccc',
+            fontSize: { xs: '0.95rem', sm: '1.05rem' },
+            lineHeight: 1.7,
+          }}
+        >
+          Medalph EMR provides essential features designed to streamline clinical documentation 
+          and improve workflow efficiency for clinics and doctors.
         </Typography>
       </motion.div>
 
-      {/* Cards */}
+      {/* Feature Cards */}
       <Grid container spacing={6} justifyContent="center" alignItems="stretch">
         {features.map((item, index) => (
           <Grid
@@ -131,6 +173,7 @@ const Services = () => {
               variants={cardVariants}
             >
               <Card
+                component="article"
                 sx={{
                   backgroundColor: '#121212',
                   color: '#fff',
@@ -152,10 +195,10 @@ const Services = () => {
               >
                 <Box sx={{ mb: 2 }}>{item.icon}</Box>
                 <CardContent sx={{ px: 0 }}>
-                  <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
+                  <Typography component="h3" variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
                     {item.title}
                   </Typography>
-                  <Typography sx={{ fontSize: 15, color: '#ccc' }}>
+                  <Typography sx={{ fontSize: 15, color: '#ccc', lineHeight: 1.6 }}>
                     {item.description}
                   </Typography>
                 </CardContent>
@@ -164,6 +207,25 @@ const Services = () => {
           </Grid>
         ))}
       </Grid>
+
+      {/* CTA Section */}
+      <Box sx={{ mt: 8, mb: 4 }}>
+        <Typography
+          component="h2"
+          variant="h5"
+          sx={{
+            color: '#b18eff',
+            fontWeight: 600,
+            mb: 3,
+            fontSize: { xs: '1.3rem', sm: '1.5rem' },
+          }}
+        >
+          Want to See These Features in Action?
+        </Typography>
+        <Button onClick={handleRequestDemo} sx={{ fontSize: { xs: '1rem', sm: '1.1rem' }, px: 5, py: 1.5 }}>
+          Request Demo
+        </Button>
+      </Box>
     </Box>
   );
 };

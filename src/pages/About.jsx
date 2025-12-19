@@ -1,17 +1,40 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import TeamImage from '../assets/Team.jpg'; // Update path if needed
+import TeamImage from '../assets/Team.jpg';
 import { useNavigate } from 'react-router-dom';
 import Spotlight from '../components/Spotlight';
 import SpotlightCard from '../components/SpotlightCard';
 import Button from '../components/Button';
 import ScrollVelocity from '../components/ScrollVelocity';
+import { usePageTitle } from '../hooks/usePageTitle';
 
-const TeamSection = () => {
+/**
+ * About Page - Medalph EMR Company
+ * 
+ * SEO & UX Improvements:
+ * - EMR-focused company messaging
+ * - Clear explanation of who Medalph is and what they do
+ * - Semantic HTML structure
+ * - Proper heading hierarchy
+ * - Standardized CTA
+ * - Image with descriptive alt text
+ */
+const About = () => {
   const navigate = useNavigate();
+
+  // SEO: Dynamic page title and meta description
+  usePageTitle(
+    'About Medalph EMR - Building EMR Software for Clinics',
+    'Learn about Medalph EMR and our mission to build clinical documentation software that clinics actually want to use. Reducing documentation time for doctors.'
+  );
+
+  const handleRequestDemo = () => {
+    navigate('/contact');
+  };
 
   return (
     <Box
+      component="main"
       sx={{
         position: 'relative',
         color: '#fff',
@@ -56,8 +79,10 @@ const TeamSection = () => {
         >
           <ScrollVelocity
             texts={[
-              'MEET ',
-              <span style={{ color: '#b18eff', marginRight: '1rem' }}>THE TEAM OF MEDALPH</span>,
+              'About ',
+              <span key="highlight" style={{ color: '#b18eff', marginRight: '1rem' }}>
+                Medalph EMR
+              </span>,
             ]}
             velocity={90}
             className="custom-scroll-text"
@@ -65,22 +90,39 @@ const TeamSection = () => {
         </Box>
 
         {/* Subtitle */}
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography
+            component="h1"
             sx={{
               maxWidth: 800,
               mx: 'auto',
               color: '#b18eff',
-              fontSize: 18,
+              fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2rem' },
+              fontWeight: 600,
+              mb: 3,
             }}
           >
-            Empowering innovation through collaboration and design. We bring passion to every
-            project and help brands make meaningful impact.
+            Building EMR Software That Clinics Actually Want to Use
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              maxWidth: 800,
+              mx: 'auto',
+              color: '#ccc',
+              fontSize: { xs: '0.95rem', sm: '1.05rem' },
+              lineHeight: 1.7,
+            }}
+          >
+            Medalph was founded to solve a real problem: doctors spending too much time on documentation 
+            and not enough time with patients. We build clinical documentation software that's fast, intuitive, 
+            and designed specifically for clinics and healthcare providers.
           </Typography>
         </Box>
 
         {/* Image and Text Side-by-Side */}
         <Box
+          component="section"
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
@@ -88,6 +130,8 @@ const TeamSection = () => {
             justifyContent: 'space-between',
             gap: 4,
             flexWrap: 'wrap',
+            maxWidth: 1200,
+            mx: 'auto',
           }}
         >
           {/* Image with Spotlight */}
@@ -95,7 +139,8 @@ const TeamSection = () => {
             <Box
               component="img"
               src={TeamImage}
-              alt="team"
+              alt="Medalph EMR team working on clinical documentation software development"
+              loading="lazy"
               sx={{
                 width: { xs: '100%', md: '100%' },
                 height: 400,
@@ -110,27 +155,57 @@ const TeamSection = () => {
 
           {/* Text + Button */}
           <Box sx={{ flex: 1, px: 2 }}>
-            <Typography sx={{ fontSize: 32, color: '#b18eff', mb: 1 }}>❝</Typography>
             <Typography
+              component="h2"
               sx={{
-                fontStyle: 'italic',
-                fontSize: 18,
+                fontSize: { xs: '1.5rem', sm: '1.8rem' },
+                color: '#b18eff',
+                mb: 2,
+                fontWeight: 600,
+              }}
+            >
+              Our Mission
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: { xs: '0.95rem', sm: '1.05rem' },
                 color: '#ccc',
-                lineHeight: 1.6,
+                lineHeight: 1.7,
                 mb: 3,
               }}
             >
-              Medalph is a passionate team of web creators who love turning ideas into reality. We
-              specialize in building fast, responsive, and beautiful websites tailored to each
-              client’s needs. From startups to enterprises, we believe in clean code, modern design,
-              and long-lasting digital solutions. Let’s build your next great online presence!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium iure ex odit
-              quidem, vitae sed nam! Laboriosam iusto consequatur dolore architecto, excepturi eos
-              quos beatae. Vitae quo quis cum libero.
+              Medalph EMR is built by a team that understands healthcare workflows. We've seen firsthand 
+              how inefficient documentation systems slow down clinics and frustrate doctors. Our mission is 
+              to create EMR software that actually makes clinical work easier, not harder.
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: { xs: '0.95rem', sm: '1.05rem' },
+                color: '#ccc',
+                lineHeight: 1.7,
+                mb: 3,
+              }}
+            >
+              We focus on simplicity, speed, and security. Every feature in Medalph EMR is designed to 
+              reduce documentation time, eliminate workflow friction, and help clinics provide better patient care.
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: { xs: '0.95rem', sm: '1.05rem' },
+                color: '#ccc',
+                lineHeight: 1.7,
+                mb: 4,
+              }}
+            >
+              Whether you're a small clinic or a larger practice, Medalph EMR adapts to your needs. 
+              We're committed to building software that clinics actually want to use.
             </Typography>
 
             <Box style={{ marginTop: '2.5rem' }}>
-              <Button onClick={() => navigate('/about')}>LEARN MORE</Button>
+              <Button onClick={handleRequestDemo}>Request Demo</Button>
             </Box>
           </Box>
         </Box>
@@ -139,4 +214,4 @@ const TeamSection = () => {
   );
 };
 
-export default TeamSection;
+export default About;

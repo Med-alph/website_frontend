@@ -2,35 +2,50 @@ import React from 'react';
 import { Box, Typography, Divider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ScrollVelocity from '../components/ScrollVelocity';
-import ShinyText from '../components/ShinyText';
-import Button from '../components/Button'; // Custom styled button
+import Button from '../components/Button';
+import { usePageTitle } from '../hooks/usePageTitle';
 
+/**
+ * Blog Page - EMR & Healthcare Content
+ * 
+ * SEO & UX Improvements:
+ * - EMR-focused blog content
+ * - Semantic HTML structure
+ * - Proper heading hierarchy
+ */
 const blogPosts = [
   {
-    title: 'Why Every Business Needs a Website in 2025',
+    title: 'How to Reduce Clinical Documentation Time',
     content:
-      'A strong online presence is no longer optional. Learn why your business should invest in a well-designed website...',
-    link: '/post/why-website-2025',
+      'Learn practical strategies for cutting documentation time in your clinic. From template optimization to workflow improvements, discover how modern EMR systems can help doctors spend more time with patients.',
+    link: '/post/reduce-documentation-time',
   },
   {
-    title: 'Top UI/UX Trends That Will Dominate',
+    title: 'Choosing the Right EMR for Your Clinic',
     content:
-      'From neumorphism to dark mode, we explore the hottest design trends in modern user interfaces...',
-    link: '/post/uiux-trends',
+      'What to look for when selecting an electronic medical records system. Key features, ease of use, and workflow considerations that matter most for clinics and healthcare providers.',
+    link: '/post/choosing-emr',
   },
   {
-    title: 'SEO Basics for Your Website',
+    title: 'Improving Clinic Workflow with EMR Software',
     content:
-      'Learn the fundamental SEO techniques to improve your website’s visibility and ranking on search engines...',
-    link: '/post/seo-basics',
+      'Explore how the right clinical documentation software can streamline your clinic\'s operations. From patient scheduling to record management, see how EMR systems improve efficiency.',
+    link: '/post/improving-workflow',
   },
 ];
 
 const Blog = () => {
   const navigate = useNavigate();
 
+  // SEO: Dynamic page title and meta description
+  usePageTitle(
+    'EMR Insights & Healthcare Tips | Medalph EMR Blog',
+    'Resources for clinics and healthcare providers. Insights, tips, and best practices for clinical documentation and EMR software.'
+  );
+
   return (
     <Box
+      component="main"
       sx={{
         background: `linear-gradient(135deg, #0c1014, #0c1015, #0d1115, #000000)`,
         color: '#fff',
@@ -54,8 +69,10 @@ const Blog = () => {
         >
           <ScrollVelocity
             texts={[
-              'Explore ',
-              <span style={{ color: '#b18eff', marginRight: '1rem' }}>Our Blogs</span>,
+              'EMR Insights & ',
+              <span key="highlight" style={{ color: '#b18eff', marginRight: '1rem' }}>
+                Healthcare Tips
+              </span>,
             ]}
             velocity={90}
             className="custom-scroll-text"
@@ -63,6 +80,22 @@ const Blog = () => {
         </Box>
 
         {/* Subtitle */}
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          sx={{
+            color: '#b18eff',
+            maxWidth: 800,
+            mx: 'auto',
+            mt: 2,
+            mb: 2,
+            fontSize: { xs: '1.8rem', sm: '2.2rem' },
+            fontWeight: 600,
+          }}
+        >
+          Resources for Clinics & Healthcare Providers
+        </Typography>
         <Typography
           variant="subtitle1"
           align="center"
@@ -76,13 +109,14 @@ const Blog = () => {
             lineHeight: 1.6,
           }}
         >
-          Insights, tips, and trends from the world of web development and design.
+          Insights, tips, and best practices for clinical documentation and EMR software.
         </Typography>
 
         {/* Blog Cards */}
         {blogPosts.map((post, index) => (
           <React.Fragment key={index}>
             <Box
+              component="article"
               sx={{
                 mb: 6,
                 p: 3,
@@ -96,6 +130,7 @@ const Blog = () => {
               }}
             >
               <Typography
+                component="h2"
                 variant="h6"
                 sx={{
                   fontWeight: 700,
@@ -108,6 +143,7 @@ const Blog = () => {
               </Typography>
 
               <Typography
+                variant="body1"
                 sx={{
                   color: '#ccc',
                   lineHeight: 1.8,
@@ -124,12 +160,14 @@ const Blog = () => {
             </Box>
 
             {/* Divider under each card */}
-            <Divider
-              sx={{
-                mb: 6,
-                borderColor: 'rgba(255,255,255,0.1)',
-              }}
-            />
+            {index < blogPosts.length - 1 && (
+              <Divider
+                sx={{
+                  mb: 6,
+                  borderColor: 'rgba(255,255,255,0.1)',
+                }}
+              />
+            )}
           </React.Fragment>
         ))}
       </Box>

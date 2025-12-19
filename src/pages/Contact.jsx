@@ -15,11 +15,28 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import Spotlight from '../components/Spotlight';
 import ShinyText from '../components/ShinyText';
+import { usePageTitle } from '../hooks/usePageTitle';
 
+/**
+ * Contact Page - Request Demo for Medalph EMR
+ * 
+ * SEO & UX Improvements:
+ * - EMR-focused messaging
+ * - Clear CTA for demo requests
+ * - Semantic HTML structure
+ * - Proper heading hierarchy
+ * - Accessible form labels
+ */
 const Contact = () => {
   const [name, setName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [message, setMessage] = useState('');
+
+  // SEO: Dynamic page title and meta description
+  usePageTitle(
+    'Request Demo - Medalph EMR | Contact Us',
+    'Request a demo of Medalph EMR clinical documentation software. See how we can streamline your clinic\'s documentation workflow and reduce documentation time.'
+  );
 
   const validateEmail = (email) => {
     // Basic email regex
@@ -37,7 +54,7 @@ const Contact = () => {
       return;
     }
 
-    const subject = `New Contact Message from ${name.trim()}`;
+    const subject = `Medalph EMR Demo Request from ${name.trim()}`;
     const body = `Name: ${name.trim()}\nEmail: ${userEmail.trim()}\n\nMessage:\n${message.trim()}`;
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contact@medalph.com&su=${encodeURIComponent(
       subject
@@ -53,6 +70,7 @@ const Contact = () => {
 
   return (
     <Box
+      component="main"
       sx={{
         minHeight: '100vh',
         background: 'linear-gradient(135deg, #0c1014, #0c1015, #0d1115, #000000)',
@@ -74,6 +92,7 @@ const Contact = () => {
 
       <Container maxWidth="sm" sx={{ position: 'relative', zIndex: 1 }}>
         <Paper
+          component="section"
           elevation={10}
           sx={{
             p: 5,
@@ -85,25 +104,29 @@ const Contact = () => {
           }}
         >
           <Typography
+            component="h1"
             variant="h4"
             fontWeight="bold"
             gutterBottom
             textAlign="center"
             sx={{ color: '#b18eff' }}
           >
-            <ShinyText text="GET IN TOUCH" disabled={false} speed={20} />
+            <ShinyText text="Request a Demo" disabled={false} speed={20} />
           </Typography>
 
           <Typography variant="body1" mb={4} textAlign="center" sx={{ color: '#ccc' }}>
-            Have questions or want to start a project? <br />
-            We’d love to hear from you.
+            See how Medalph EMR can streamline your clinic's documentation workflow. 
+            <br />
+            Schedule a demo to get started.
           </Typography>
 
-          <Stack spacing={2}>
+          <Stack component="form" spacing={2} onSubmit={(e) => { e.preventDefault(); handleSendMail(); }}>
             <TextField
-              placeholder="Your Name"
+              label="Your Name"
+              placeholder="Dr. John Smith"
               variant="outlined"
               fullWidth
+              required
               value={name}
               onChange={(e) => setName(e.target.value)}
               InputProps={{
@@ -121,9 +144,12 @@ const Contact = () => {
               }}
             />
             <TextField
-              placeholder="Your Email"
+              label="Clinic Email"
+              placeholder="contact@yourclinic.com"
+              type="email"
               variant="outlined"
               fullWidth
+              required
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
               InputProps={{
@@ -141,9 +167,11 @@ const Contact = () => {
               }}
             />
             <TextField
-              placeholder="Your Message"
+              label="Message"
+              placeholder="Tell us about your clinic and what you'd like to see in the demo..."
               variant="outlined"
               fullWidth
+              required
               multiline
               rows={4}
               value={message}
@@ -181,7 +209,7 @@ const Contact = () => {
               }}
               type="button"
             >
-              Send Message
+              Request Demo
             </Button>
           </Stack>
 
@@ -232,7 +260,7 @@ const Contact = () => {
             textAlign="center"
             sx={{ color: '#666', fontStyle: 'italic' }}
           >
-            Building the web with precision & creativity.
+            Building EMR software that clinics actually want to use.
           </Typography>
         </Paper>
       </Container>

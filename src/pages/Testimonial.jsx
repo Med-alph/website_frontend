@@ -5,33 +5,49 @@ import { Box, Typography, IconButton } from "@mui/material";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollVelocity from "../components/ScrollVelocity";
+import { usePageTitle } from "../hooks/usePageTitle";
 
+/**
+ * Testimonial Page - Team/Company Testimonials
+ * 
+ * SEO & UX Improvements:
+ * - Semantic HTML structure
+ * - Proper heading hierarchy
+ * - Descriptive alt text for images
+ * - Lazy loading for images
+ */
 const testimonials = [
   {
     name: "Sarath Chandran",
     designation: "Co-Founder",
     quote:
-      "Medalph is our vision turned into reality. We strive to build lean, impactful products that make a difference.",
+      "Medalph EMR is our vision turned into reality. We strive to build lean, impactful EMR software that makes a real difference for clinics and doctors.",
     image: "/images/sarath.jpg",
   },
   {
     name: "Geffrey",
     designation: "Co-Founder",
     quote:
-      "At Medalph, we focus on blending innovation with simplicity. Our goal is to deliver scalable and user-friendly solutions.",
+      "At Medalph, we focus on blending innovation with simplicity. Our goal is to deliver scalable and user-friendly clinical documentation software.",
     image: "/images/geffrey.jpg",
   },
   {
     name: "Kamaal",
     designation: "Lead Developer",
     quote:
-      "Working at Medalph has been an exciting journey. Every project is a chance to push boundaries and deliver excellence.",
+      "Working at Medalph has been an exciting journey. Every feature we build is designed to reduce documentation time and improve clinic workflows.",
     image: "/images/kamal.jpg",
   }  
 ];
 
 const Testimonial = () => {
   const [active, setActive] = useState(0);
+
+  // SEO: Dynamic page title and meta description
+  usePageTitle(
+    'Meet the Team - Medalph EMR',
+    'Meet the Medalph EMR team building clinical documentation software for clinics and doctors.'
+  );
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -48,6 +64,7 @@ const Testimonial = () => {
 
   return (
     <Box
+      component="main"
       sx={{
         color: "#fff",
         pt: 6,
@@ -56,6 +73,7 @@ const Testimonial = () => {
         fontFamily: "Segoe UI, sans-serif",
         position: "relative",
         overflow: "hidden",
+        minHeight: "100vh",
       }}
     >
       {/* ScrollVelocity Heading */}
@@ -72,9 +90,9 @@ const Testimonial = () => {
       >
         <ScrollVelocity
           texts={[
-            "What ",
-            <span style={{ color: "#b18eff", marginRight: "1rem" }}>
-              Our Clients Say
+            "Meet the ",
+            <span key="highlight" style={{ color: "#b18eff", marginRight: "1rem" }}>
+              Medalph Team
             </span>,
           ]}
           velocity={90}
@@ -95,6 +113,7 @@ const Testimonial = () => {
       >
         {/* Image */}
         <Box
+          component="figure"
           sx={{
             position: "relative",
             width: "100%",
@@ -103,13 +122,15 @@ const Testimonial = () => {
             borderRadius: "16px",
             overflow: "hidden",
             flexShrink: 0,
+            margin: 0,
           }}
         >
           <AnimatePresence mode="wait">
             <motion.img
               key={testimonials[active].image}
               src={testimonials[active].image}
-              alt={testimonials[active].name}
+              alt={`${testimonials[active].name}, ${testimonials[active].designation} at Medalph EMR`}
+              loading="lazy"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
@@ -129,6 +150,7 @@ const Testimonial = () => {
 
         {/* Text & Controls */}
         <Box
+          component="section"
           sx={{
             maxWidth: { xs: "100%", md: 500 },
             px: { xs: 1, md: 0 },
@@ -137,29 +159,32 @@ const Testimonial = () => {
           }}
         >
           <AnimatePresence mode="wait">
-            <motion.div
+            <motion.blockquote
               key={active}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.4 }}
+              style={{ margin: 0 }}
             >
               <Typography
+                component="h2"
                 variant="h6"
                 sx={{ fontWeight: 700, mb: 1, color: "#b18eff", fontSize: { xs: "1.1rem", md: "1.25rem" } }}
               >
                 {testimonials[active].name}
               </Typography>
               <Typography
+                component="p"
                 variant="subtitle2"
                 sx={{ mb: 3, color: "#aaa", fontSize: { xs: "0.85rem", md: "1rem" } }}
               >
                 {testimonials[active].designation}
               </Typography>
-              <Typography sx={{ color: "#ccc", fontSize: { xs: "1rem", md: "1.125rem" }, lineHeight: 1.5 }}>
+              <Typography component="p" sx={{ color: "#ccc", fontSize: { xs: "1rem", md: "1.125rem" }, lineHeight: 1.5 }}>
                 {testimonials[active].quote}
               </Typography>
-            </motion.div>
+            </motion.blockquote>
           </AnimatePresence>
 
           <Box
