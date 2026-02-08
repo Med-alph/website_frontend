@@ -1,214 +1,214 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
-import TeamImage from '../assets/Team.jpg';
+import { motion } from 'framer-motion';
+import { Activity, Shield, Users, Target, Heart, ArrowRight, Database, Building2, Stethoscope, Microscope, Tablet } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import Spotlight from '../components/Spotlight';
-import SpotlightCard from '../components/SpotlightCard';
-import Button from '../components/Button';
-import ScrollVelocity from '../components/ScrollVelocity';
-import { usePageTitle } from '../hooks/usePageTitle';
+import { Button } from '@/components/ui/button';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
-/**
- * About Page - Medalph Medical Software Company
- * 
- * SEO & UX Improvements:
- * - Platform-level company positioning (medical software company)
- * - Clear explanation of who Medalph is and what they do
- * - Semantic HTML structure
- * - Proper heading hierarchy
- * - Standardized CTA
- * - Image with descriptive alt text
- */
 const About = () => {
   const navigate = useNavigate();
-
-  // SEO: Dynamic page title and meta description - Platform company positioning
   usePageTitle(
-    'About Medalph - Medical Software Company for Healthcare Providers',
-    'Learn about Medalph, a medical software company providing healthcare management solutions for clinics, hospitals, and healthcare teams.'
+    'About MedAlph | Our Mission & Clinical Philosophy',
+    'Learn how MedAlph is redefining EMR software with a focus on clinician experience, data integrity, and patient outcomes.'
   );
 
-  const handleRequestDemo = () => {
-    navigate('/contact');
-  };
+  const values = [
+    {
+      icon: Heart,
+      title: "Patient-Centered",
+      desc: "Every line of code we write is aimed at improving the human interaction between a doctor and a patient."
+    },
+    {
+      icon: Shield,
+      title: "Clinical Trust",
+      desc: "We treat data privacy as a medical requirement, ensuring HIPAA-ready security at every layer."
+    },
+    {
+      icon: Target,
+      title: "Technical Excellence",
+      desc: "We use modern, scalable technologies to ensure 99.9% uptime for critical healthcare operations."
+    }
+  ];
 
   return (
-    <Box
-      component="main"
-      sx={{
-        position: 'relative',
-        color: '#fff',
-        py: 8,
-        px: { xs: 3, md: 6 },
-        fontFamily: 'Segoe UI, sans-serif',
-        overflow: 'hidden',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        background: 'linear-gradient(135deg, #0c1014, #0c1015, #0d1115, #000000)',
-      }}
-    >
-      {/* Spotlight background */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 0,
-        }}
+    <div className="flex flex-col w-full bg-background pt-24 pb-24 md:pt-32">
+      {/* Hero Section */}
+      <section className="container px-4 md:px-6 mb-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold uppercase tracking-wider"
+            >
+              Our Story
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight"
+            >
+              Reimagining the <br />
+              <span className="text-primary italic">Clinical Operating System.</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg md:text-xl text-muted-foreground leading-relaxed italic"
+            >
+              MedAlph was founded on a simple realization: medical software shouldn't get in the way of medicine.
+              We're building tools that work as hard as the clinicians who use them.
+            </motion.p>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="absolute -inset-4 bg-primary/5 rounded-[3rem] blur-2xl" />
+            <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-800 bg-slate-100 dark:bg-slate-900">
+              <img src="/src/assets/Team.jpg" alt="MedAlph Team" className="w-full h-full object-cover" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Philosophy Section */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="py-24 bg-slate-50 dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800"
       >
-        <Spotlight />
-      </Box>
+        <div className="container px-4 md:px-6">
+          <div className="max-w-[800px] mb-16 space-y-4">
+            <motion.h2
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl md:text-4xl font-bold tracking-tight"
+            >
+              Our Core Philosophy
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-lg text-muted-foreground leading-relaxed"
+            >
+              We believe that great healthcare software must be invisible, secure, and deeply integrated.
+              Our values guide every capability we implement.
+            </motion.p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            {values.map((v, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 + (i * 0.1) }}
+                className="space-y-4 p-8 bg-background border border-border rounded-3xl shadow-sm hover:shadow-md transition-shadow dark:bg-slate-950"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                  <v.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold">{v.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
-      {/* Content Layer */}
-      <Box sx={{ position: 'relative', zIndex: 1 }}>
-        {/* ScrollVelocity Heading */}
-        <Box
-          sx={{
-            width: '100vw',
-            position: 'relative',
-            left: '50%',
-            right: '50%',
-            marginLeft: '-50vw',
-            marginRight: '-50vw',
-            mb: 4,
-          }}
-        >
-          <ScrollVelocity
-            texts={[
-              'About ',
-              <span key="highlight" style={{ color: '#b18eff', marginRight: '1rem' }}>
-                Medalph
-              </span>,
-            ]}
-            velocity={90}
-            className="custom-scroll-text"
-          />
-        </Box>
-
-        {/* Subtitle */}
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography
-            component="h1"
-            sx={{
-              maxWidth: 800,
-              mx: 'auto',
-              color: '#b18eff',
-              fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2rem' },
-              fontWeight: 600,
-              mb: 3,
-            }}
+      {/* Deep Mission */}
+      <section className="container px-4 md:px-6 py-32">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="order-2 lg:order-1 relative aspect-square max-w-md mx-auto"
           >
-            Medical Software Company for Healthcare Providers
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              maxWidth: 800,
-              mx: 'auto',
-              color: '#ccc',
-              fontSize: { xs: '0.95rem', sm: '1.05rem' },
-              lineHeight: 1.7,
-            }}
-          >
-            Medalph is a medical software company providing healthcare management solutions for clinics, hospitals, and healthcare teams. 
-            We develop software platforms that improve clinical workflows and operational efficiency for healthcare providers.
-          </Typography>
-        </Box>
-
-        {/* Image and Text Side-by-Side */}
-        <Box
-          component="section"
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
-            gap: 4,
-            flexWrap: 'wrap',
-            maxWidth: 1200,
-            mx: 'auto',
-          }}
-        >
-          {/* Image with Spotlight */}
-          <SpotlightCard className="spotlight-card-wrapper">
-            <Box
-              component="img"
-              src={TeamImage}
-              alt="Medalph medical software development team"
-              loading="lazy"
-              sx={{
-                width: { xs: '100%', md: '100%' },
-                height: 400,
-                borderRadius: 3,
-                objectFit: 'cover',
-                flexShrink: 0,
-                boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
-                display: 'block',
-              }}
-            />
-          </SpotlightCard>
-
-          {/* Text + Button */}
-          <Box sx={{ flex: 1, px: 2 }}>
-            <Typography
-              component="h2"
-              sx={{
-                fontSize: { xs: '1.5rem', sm: '1.8rem' },
-                color: '#b18eff',
-                mb: 2,
-                fontWeight: 600,
-              }}
+            <div className="absolute inset-0 bg-primary/5 rounded-full blur-3xl" />
+            <div className="relative w-full h-full rounded-full border-2 border-dashed border-primary/20 p-8 flex items-center justify-center">
+              <div className="w-full h-full rounded-full bg-white dark:bg-slate-800 shadow-inner flex items-center justify-center overflow-hidden border-4 border-white dark:border-slate-700">
+                <img
+                  src="/src/assets/about.jpg"
+                  alt="MedAlph Mission"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+            </div>
+          </motion.div>
+          <div className="order-1 lg:order-2 space-y-8">
+            <motion.h2
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl md:text-5xl font-bold tracking-tight leading-tight"
             >
-              Our Mission
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: { xs: '0.95rem', sm: '1.05rem' },
-                color: '#ccc',
-                lineHeight: 1.7,
-                mb: 3,
-              }}
+              Empowering the <br />
+              <span className="text-primary italic">Backbone of Healthcare.</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-lg text-muted-foreground leading-relaxed"
             >
-              Medalph is developed by a team focused on healthcare technology. We understand the operational and clinical challenges 
-              that clinics and hospitals face, and we build medical software solutions that support efficient healthcare delivery.
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: { xs: '0.95rem', sm: '1.05rem' },
-                color: '#ccc',
-                lineHeight: 1.7,
-                mb: 3,
-              }}
+              From rural polyclinics to urban tertiary hospitals, MedAlph is designed to bridge the gap between
+              clinical data and patient care. We're not just a software vendor—we're an operational partner
+              to thousands of healthcare providers.
+            </motion.p>
+            <div className="flex flex-col sm:flex-row gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="space-y-1"
+              >
+                <div className="text-2xl font-bold text-slate-900 dark:text-white uppercase tracking-tighter">Clinical Excellence</div>
+                <div className="text-sm font-bold text-muted-foreground uppercase tracking-widest text-primary">Patient First</div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="space-y-1"
+              >
+                <div className="text-2xl font-bold text-slate-900 dark:text-white uppercase tracking-tighter">Technical Integrity</div>
+                <div className="text-sm font-bold text-muted-foreground uppercase tracking-widest text-primary">Secure by Design</div>
+              </motion.div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="pt-4"
             >
-              Our approach emphasizes practical solutions, usability, and security. Medalph platform capabilities are designed 
-              to improve clinical workflows, enhance operational efficiency, and support quality patient care delivery.
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: { xs: '0.95rem', sm: '1.05rem' },
-                color: '#ccc',
-                lineHeight: 1.7,
-                mb: 4,
-              }}
-            >
-              Medalph medical software is designed to support healthcare providers of various sizes, from small clinics 
-              to larger hospital systems, adapting to different practice needs and operational requirements.
-            </Typography>
-
-            <Box style={{ marginTop: '2.5rem' }}>
-              <Button onClick={handleRequestDemo}>Request Demo</Button>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+              <Button className="h-14 px-10 text-lg font-bold group" onClick={() => navigate('/contact')}>
+                Join our Mission
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
+          </div>
+        </div>
+      </section >
+    </div >
   );
 };
 

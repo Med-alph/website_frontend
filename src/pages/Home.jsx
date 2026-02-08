@@ -1,469 +1,442 @@
-import React, { useRef } from 'react';
-import { Box, Typography, Container, Grid } from '@mui/material';
-import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
-import SpeedIcon from '@mui/icons-material/Speed';
-import SecurityIcon from '@mui/icons-material/Security';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import ScrollFloat from '../components/ScrollFloat';
-import Button from '../components/Button';
-import Spotlight from '../components/Spotlight';
-import SpotlightCard from '../components/SpotlightCard';
-import { useMediaQuery } from 'react-responsive';
-import ShinyText from '../components/ShinyText';
-import { usePageTitle } from '../hooks/usePageTitle';
+import { ArrowRight, CheckCircle2, Shield, Zap, TrendingUp, Users, Activity, Cpu, Mic, Image as ImageIcon, Clock, LayoutDashboard } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { usePageTitle } from '@/hooks/usePageTitle';
+import { cn } from "@/lib/utils";
 
-/**
- * Home Page - Medalph Medical Software Platform
- * 
- * SEO & UX Improvements:
- * - Single h1 tag optimized for "Medical software for clinics" / "Healthcare management software"
- * - Clear platform positioning (medical software company, not just documentation)
- * - Content flow: Healthcare Problems → Medalph Platform → Core Capabilities → Benefits → Trust → CTA
- * - Semantic HTML structure (header, main, section)
- * - Standardized CTAs ("Request Demo")
- * - Healthcare trust signals
- */
 const Home = () => {
   const navigate = useNavigate();
-  const containerRef = useRef(null);
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-
-  // SEO: Dynamic page title and meta description - Platform-level positioning
   usePageTitle(
-    'Medalph - Medical Software for Clinics & Healthcare Providers',
-    'Medalph provides medical software and healthcare management solutions for clinics, hospitals, and healthcare teams. Improve clinical workflows and operational efficiency.'
+    'MedAlph | Modern EMR for Faster Clinics & Smarter Hospitals',
+    'Experience a clinically trustworthy and technically powerful EMR built for the Indian healthcare ecosystem. Manage patients, billing, and clinical records in one platform.'
   );
-
-  const handleRequestDemo = () => {
-    navigate('/contact');
-  };
-
   return (
-    <Box
-      component="main"
-      sx={{
-        bgcolor: '#0f0c29',
-        background: `linear-gradient(135deg, #0c1014, #0c1015, #0d1115, #000000)`,
-        minHeight: '100vh',
-        color: '#ffffff',
-        position: 'relative',
-        overflow: 'hidden',
-        px: { xs: 2, sm: 3, md: 6 },
-      }}
-    >
-      {/* Background Spotlight Effect */}
-      <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-        <Spotlight />
-      </Box>
+    <div className="flex flex-col w-full">
+      {/* Hero Section */}
+      <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 overflow-hidden">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[120px]" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px]" />
+        </div>
 
-      {/* Hero Section - Above the fold with clear value proposition */}
-      <Box
-        component="header"
-        ref={containerRef}
-        sx={{
-          minHeight: '90vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'relative',
-          zIndex: 1,
-          textAlign: 'center',
-          px: { xs: 2, sm: 4, md: 0 },
-        }}
-      >
-        <Box sx={{ maxWidth: { xs: '100%', sm: '720px', md: '1000px' }, mx: 'auto' }}>
-          {/* SEO: Single h1 tag optimized for "Medical software for clinics" / "Healthcare management software" */}
-          <Typography
-            component="h1"
-            variant="h2"
-            sx={{
-              fontSize: { xs: '2rem', sm: '2.8rem', md: '3.8rem' },
-              fontWeight: 'bold',
-              color: '#ffffff',
-              lineHeight: 1.2,
-              mb: 3,
-              px: { xs: 1, sm: 0 },
-            }}
-          >
-            Medical Software for Clinics
-          </Typography>
-
-          {/* Clear value proposition - Platform positioning: what Medalph does, who it's for */}
-          <Typography
-            variant="h5"
-            component="p"
-            sx={{
-              fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' },
-              color: '#b18eff',
-              fontWeight: 500,
-              mb: 2,
-              px: { xs: 1, sm: 0 },
-            }}
-          >
-            Healthcare Management Software That Improves Clinical Workflows
-          </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: { xs: '1rem', sm: '1.1rem' },
-              color: '#aaa',
-              mt: 2,
-              maxWidth: { xs: '100%', sm: '800px' },
-              mx: 'auto',
-              lineHeight: 1.7,
-              px: { xs: 1, sm: 0 },
-              mb: 4,
-            }}
-          >
-            Medalph provides medical software solutions for clinics, hospitals, and healthcare teams. 
-            Our platform improves clinical workflows and operational efficiency, helping healthcare providers 
-            deliver better patient care while managing their practice more effectively.
-          </Typography>
-
-          {/* Primary CTA - visually dominant */}
-          <Box mt={isMobile ? 4 : 5}>
-            <Button
-              onClick={handleRequestDemo}
-              sx={{
-                fontSize: { xs: '1rem', sm: '1.1rem' },
-                px: { xs: 4, sm: 6 },
-                py: { xs: 1.5, sm: 1.8 },
-                fontWeight: 600,
-              }}
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center text-center space-y-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium"
             >
-              Request Demo
+              <Zap className="w-4 h-4" />
+              <span>Built for modern healthcare</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white max-w-[1000px]"
+            >
+              Modern EMR built for <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">faster</span> clinics and <span className="text-primary italic">smarter</span> hospitals.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg md:text-xl text-muted-foreground max-w-[750px] leading-relaxed"
+            >
+              Manage patients, records, billing, and analytics
+              — securely, in one platform. Designed for excellence in the Indian healthcare ecosystem.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Button size="lg" className="h-12 px-8 text-base font-semibold group" onClick={() => navigate('/contact')}>
+                Request Demo
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button size="lg" variant="outline" className="h-12 px-8 text-base font-semibold" onClick={() => navigate('/services')}>
+                View Product
+              </Button>
+            </motion.div>
+
+            {/* Tech Standards bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="pt-16 border-t border-slate-100 dark:border-slate-800 w-full mt-12"
+            >
+              <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+                {[
+                  { icon: Shield, label: "HIPAA Ready Architecture" },
+                  { icon: Activity, label: "Unified Clinical Workflows" },
+                  { icon: Zap, label: "99.9% Uptime SLA" }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 text-muted-foreground">
+                    <item.icon className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-bold uppercase tracking-wider">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Snapshot Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+        className="py-24 md:py-32 bg-slate-50/80 dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800"
+      >
+        <div className="container px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider"
+              >
+                Our Dashboard
+              </motion.div>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white"
+              >
+                Everything you need <br />
+                <span className="text-primary">in one single pane.</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="text-lg md:text-xl text-muted-foreground leading-relaxed italic"
+              >
+                "We transformed our operational efficiency by 40% in just 3 months after switching to MedAlph."
+              </motion.p>
+
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  { title: "Smart Scheduling", desc: "Reduce no-shows by 25% with automated reminders." },
+                  { title: "Unified EHR", desc: "Instant access to patient history from any device." },
+                  { title: "Direct Billing", desc: "Generate invoices and collect payments instantly." },
+                  { title: "Clinical Insights", desc: "Real-time analytics for hospital management." }
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 + (i * 0.1) }}
+                    className="space-y-2"
+                  >
+                    <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-white">
+                      <CheckCircle2 className="w-5 h-5 text-primary" />
+                      {item.title}
+                    </div>
+                    <p className="text-sm text-muted-foreground dark:text-slate-400 leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative group"
+            >
+              <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 via-blue-400/10 to-transparent rounded-[2rem] blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+              <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden aspect-[4/3]">
+                <img
+                  src="/images/dashboard.png"
+                  alt="MedAlph Dashboard"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Modules Grid */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+        className="py-24 md:py-32"
+      >
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div className="max-w-[600px] space-y-4">
+              <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="text-3xl md:text-5xl font-bold tracking-tight"
+              >
+                Designed for clinical <br />
+                <span className="text-primary">outcomes.</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-lg text-muted-foreground leading-relaxed italic"
+              >
+                Our modular approach allows you to scale from a single clinic to a multi-city hospital chain without friction.
+              </motion.p>
+            </div>
+            <Button variant="link" className="text-primary font-bold group p-0" onClick={() => navigate('/modules')}>
+              Explore all 15 modules
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-          </Box>
-        </Box>
-      </Box>
+          </div>
 
-      {/* Healthcare Problems Section - What challenges do clinics face */}
-      <Box
-        component="section"
-        sx={{
-          position: 'relative',
-          zIndex: 1,
-          py: { xs: 6, sm: 8 },
-          px: { xs: 2, sm: 4 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Typography
-            component="h2"
-            fontWeight="bold"
-            sx={{
-              color: '#b18eff',
-              mb: 3,
-              fontSize: { xs: '1.8rem', sm: '2.2rem' },
-              textAlign: 'center',
-            }}
-          >
-            Healthcare Providers Face Complex Operational Challenges
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              maxWidth: '900px',
-              mx: 'auto',
-              mt: 2,
-              color: '#ccc',
-              fontSize: { xs: '1rem', sm: '1.1rem' },
-              lineHeight: 1.7,
-              textAlign: 'center',
-            }}
-          >
-            Clinics and hospitals struggle with inefficient workflows, documentation burdens, and disconnected systems. 
-            These challenges reduce time available for patient care and create operational friction. 
-            Healthcare teams need integrated software solutions that support both clinical and administrative workflows.
-          </Typography>
-        </Container>
-      </Box>
-
-      {/* Medalph Platform Section - What Medalph is and does */}
-      <Box
-        component="section"
-        sx={{
-          position: 'relative',
-          zIndex: 1,
-          py: { xs: 6, sm: 8 },
-          px: { xs: 2, sm: 4 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Typography
-            component="h2"
-            fontWeight="bold"
-            sx={{
-              color: '#b18eff',
-              mb: 3,
-              fontSize: { xs: '1.8rem', sm: '2.2rem' },
-              textAlign: 'center',
-            }}
-          >
-            Medalph: Medical Software Platform for Healthcare Providers
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              maxWidth: '900px',
-              mx: 'auto',
-              mt: 2,
-              color: '#ccc',
-              fontSize: { xs: '1rem', sm: '1.1rem' },
-              lineHeight: 1.7,
-              textAlign: 'center',
-              mb: 4,
-            }}
-          >
-            Medalph is a medical software company providing healthcare management solutions for clinics, hospitals, and healthcare teams. 
-            Our platform includes clinical documentation, patient management, and operational tools designed to improve 
-            both clinical workflows and practice efficiency. We build software that supports healthcare providers in delivering quality care.
-          </Typography>
-        </Container>
-      </Box>
-
-      {/* Core Capabilities Section - What the platform includes */}
-      <Box
-        component="section"
-        sx={{
-          mt: 6,
-          px: { xs: 2, sm: 4, md: 8 },
-          py: 8,
-          textAlign: 'center',
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
-        <Typography
-          component="h2"
-          fontWeight="bold"
-          sx={{
-            color: '#b18eff',
-            mb: 6,
-            fontSize: { xs: '1.8rem', sm: '2.2rem' },
-          }}
-        >
-          Core Capabilities of Medalph Platform
-        </Typography>
-
-        <Grid container spacing={4} justifyContent="center">
-          {[
-            {
-              icon: <MedicalServicesIcon sx={{ fontSize: { xs: 36, sm: 48 }, color: '#b18eff' }} />,
-              title: 'Clinical Documentation & Records',
-              desc: 'Streamline clinical documentation with tools designed for healthcare workflows. Manage patient records efficiently.',
-            },
-            {
-              icon: <SpeedIcon sx={{ fontSize: { xs: 36, sm: 48 }, color: '#b18eff' }} />,
-              title: 'Patient Management & Workflows',
-              desc: 'Integrated patient management tools support clinical workflows. Access patient information and coordinate care effectively.',
-            },
-            {
-              icon: <SecurityIcon sx={{ fontSize: { xs: 36, sm: 48 }, color: '#b18eff' }} />,
-              title: 'Healthcare Data Security',
-              desc: 'Built with healthcare data security and privacy requirements in mind. Secure access controls and data protection.',
-            },
-          ].map((card, index) => (
-            <Grid key={index} item xs={12} sm={6} md={4}>
-              <SpotlightCard>
-                <Box
-                  sx={{
-                    color: '#fff',
-                    p: { xs: 3, sm: 4 },
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                    },
-                    borderRadius: 2,
-                  }}
-                >
-                  <Box sx={{ mb: 2 }}>{card.icon}</Box>
-                  <Typography
-                    component="h3"
-                    variant="h6"
-                    sx={{ mb: 1, fontWeight: 600, fontSize: { xs: '1.1rem', sm: '1.25rem' } }}
-                  >
-                    {card.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#ccc', lineHeight: 1.6, fontSize: { xs: '0.9rem', sm: '1rem' } }}>
-                    {card.desc}
-                  </Typography>
-                </Box>
-              </SpotlightCard>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-
-      {/* Benefits Section */}
-      <Box
-        component="section"
-        sx={{
-          position: 'relative',
-          zIndex: 1,
-          py: { xs: 6, sm: 8 },
-          px: { xs: 2, sm: 4 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Typography
-            component="h2"
-            fontWeight="bold"
-            sx={{
-              color: '#b18eff',
-              mb: 4,
-              fontSize: { xs: '1.8rem', sm: '2.2rem' },
-              textAlign: 'center',
-            }}
-          >
-            Benefits for Your Clinic
-          </Typography>
-          <Grid container spacing={4} sx={{ mt: 2 }}>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-            {
-              title: 'Improve Clinical Workflows',
-              desc: 'Medical software tools designed to streamline clinical processes and reduce administrative burden.',
-            },
-            {
-              title: 'Enhance Operational Efficiency',
-              desc: 'Healthcare management features support efficient clinic operations and better resource utilization.',
-            },
-            {
-              title: 'Integrated Healthcare Platform',
-              desc: 'Unified platform connects clinical and administrative functions, supporting coordinated care delivery.',
-            },
-            {
-              title: 'Built for Healthcare Teams',
-              desc: 'Designed for healthcare providers, with interfaces and workflows that support clinical practice.',
-            },
-            ].map((benefit, index) => (
-              <Grid key={index} item xs={12} sm={6}>
-                <Box sx={{ p: 3, borderRadius: 2, bgcolor: 'rgba(177, 142, 255, 0.05)' }}>
-                  <Typography
-                    component="h3"
-                    variant="h6"
-                    sx={{ color: '#b18eff', mb: 1, fontWeight: 600, fontSize: { xs: '1.1rem', sm: '1.2rem' } }}
-                  >
-                    {benefit.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#ccc', lineHeight: 1.6 }}>
-                    {benefit.desc}
-                  </Typography>
-                </Box>
-              </Grid>
+              { title: "Medical Copilot", desc: "AI-powered clinical insights and automated documentation assistant during consultations.", icon: Cpu, color: "bg-blue-600" },
+              { title: "Voice-to-SOAP", desc: "Transcribe spoken consultations into structured SOAP notes using AI-powered technology.", icon: Mic, color: "bg-emerald-600" },
+              { title: "Integrated Billing", desc: "Hassle-free invoicing with Razorpay and multi-branch revenue tracking.", icon: TrendingUp, color: "bg-indigo-600" },
+              { title: "Dermatology Suite", desc: "AI-powered clinical image analysis and progress comparison tools.", icon: ImageIcon, color: "bg-rose-600" },
+              { title: "Smart Scheduling", desc: "Real-time booking and automated queue management to reduce wait times.", icon: Clock, color: "bg-amber-600" },
+              { title: "Inventory & HIMS", desc: "Track medical supplies, pharmacy stock, and staff check-ins across locations.", icon: LayoutDashboard, color: "bg-cyan-600" },
+            ].map((module, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Card className="group hover:border-primary/20 transition-all hover:shadow-2xl hover:-translate-y-1 duration-300">
+                  <CardContent className="pt-10 pb-8 px-8">
+                    <div className={cn(
+                      "mb-6 w-14 h-14 rounded-2xl flex items-center justify-center transition-all group-hover:rotate-6",
+                      "bg-slate-50 dark:bg-slate-800 group-hover:bg-primary/10"
+                    )}>
+                      <module.icon className="w-7 h-7 text-slate-700 group-hover:text-primary transition-colors" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 dark:text-white">{module.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {module.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </Grid>
-        </Container>
-      </Box>
+          </div>
+        </div>
+      </motion.section>
 
-      {/* Trust & Security Section - Healthcare signals */}
-      <Box
-        component="section"
-        sx={{
-          position: 'relative',
-          zIndex: 1,
-          py: { xs: 6, sm: 8 },
-          px: { xs: 2, sm: 4 },
-          mt: 4,
-        }}
+      {/* Trust Section */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="py-24 md:py-32 bg-slate-950 relative overflow-hidden text-white border-b border-slate-900"
       >
-        <Container maxWidth="md">
-          <Typography
-            component="h2"
-            fontWeight="bold"
-            sx={{
-              color: '#b18eff',
-              mb: 3,
-              fontSize: { xs: '1.8rem', sm: '2.2rem' },
-              textAlign: 'center',
-            }}
-          >
-            Privacy and Security for Healthcare Data
-          </Typography>
-          <Box
-            sx={{
-              bgcolor: 'rgba(177, 142, 255, 0.08)',
-              borderRadius: 3,
-              p: { xs: 3, sm: 4 },
-              mt: 3,
-            }}
-          >
-            <Typography
-              variant="body1"
-              sx={{
-                color: '#ccc',
-                fontSize: { xs: '0.95rem', sm: '1.05rem' },
-                lineHeight: 1.8,
-                textAlign: 'center',
-              }}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-0" />
+        <div className="container relative z-10 px-4 md:px-6">
+          <div className="flex flex-col items-center text-center space-y-12">
+            <div className="space-y-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="flex justify-center mb-6"
+              >
+                <div className="p-4 bg-primary/20 rounded-full">
+                  <Shield className="w-12 h-12 text-primary" />
+                </div>
+              </motion.div>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-3xl md:text-5xl font-bold tracking-tight"
+              >
+                Clinically Trustworthy. <br />
+                <span className="text-primary italic">Technically Powerful.</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="text-lg text-slate-400 max-w-[750px] leading-relaxed"
+              >
+                Healthcare requires zero compromise on security. We build with the world's most
+                stringent data protection protocols as our baseline.
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+              {[
+                { label: "ISO 27001", detail: "Information Security Management System certified.", icon: Shield },
+                { label: "Data Encryption", detail: "End-to-end encryption for all patient and clinical data.", icon: Shield },
+                { label: "99.9% Uptime", detail: "Tier-4 data centers ensuring your clinic never stops.", icon: Zap },
+                { label: "Role-Based Access", detail: "Strict audit logs for every interaction with patient files.", icon: Users },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 + (i * 0.1) }}
+                  className="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl space-y-4 text-left group hover:bg-slate-900 transition-colors"
+                >
+                  <item.icon className="w-8 h-8 text-primary opacity-50 group-hover:opacity-100 transition-opacity" />
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-white">{item.label}</h3>
+                    <p className="text-sm text-slate-500 leading-relaxed">{item.detail}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Testimonials */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="py-24 md:py-32 overflow-hidden"
+      >
+        <div className="container px-4 md:px-6">
+          <div className="text-center space-y-4 mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl md:text-5xl font-bold tracking-tight"
             >
-              Medalph EMR is built with healthcare data security and privacy as foundational principles. 
-              Patient information is encrypted, access is controlled, and data storage follows security best practices. 
-              We maintain awareness of healthcare regulatory requirements and design our systems accordingly.
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
+              Trusted by the world's <br />
+              <span className="text-primary">best clinicians.</span>
+            </motion.h2>
+          </div>
 
-      {/* Final CTA Section */}
-      <Box
-        component="section"
-        sx={{
-          mt: 8,
-          px: { xs: 2, sm: 4 },
-          py: 6,
-          background: 'linear-gradient(135deg, #0c1014, #0c1015, #0d1115, #000000)',
-          borderRadius: 2,
-          maxWidth: 700,
-          mx: 'auto',
-          color: '#fff',
-          position: 'relative',
-          zIndex: 1,
-          textAlign: 'center',
-        }}
-      >
-        <Typography
-          component="h2"
-          variant="h5"
-          sx={{
-            color: '#b18eff',
-            fontWeight: 'bold',
-            mb: 3,
-            fontSize: { xs: '1.5rem', sm: '1.75rem' },
-          }}
-        >
-          See How Medalph Can Support Your Healthcare Practice
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            color: '#ccc',
-            mb: 4,
-            fontSize: { xs: '0.95rem', sm: '1.05rem' },
-            lineHeight: 1.6,
-          }}
-        >
-          Request a demo to learn how Medalph medical software can improve clinical workflows and operational efficiency for your clinic or hospital.
-        </Typography>
-        <Button
-          onClick={handleRequestDemo}
-          sx={{
-            fontSize: { xs: '1rem', sm: '1.1rem' },
-            px: { xs: 5, sm: 6 },
-            py: { xs: 1.5, sm: 1.8 },
-            fontWeight: 600,
-          }}
-        >
-          Request Demo
-        </Button>
-      </Box>
-    </Box>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                text: "The transition to MedAlph was seamless. Our doctors spend less time on screens and more time with patients now.",
+                author: "Dr. Rajesh Kumar",
+                role: "Medical Director, City Hospital"
+              },
+              {
+                text: "Finally an EMR that understands Indian clinical workflows. The billing module alone saved us hours of manual work.",
+                author: "Dr. Ananya Sharma",
+                role: "Founder, Sharma Clinics"
+              },
+              {
+                text: "Security was our biggest concern. MedAlph's HIPAA-ready architecture gave us the confidence to go 100% digital.",
+                author: "Amit Verma",
+                role: "IT Head, Vital Labs"
+              }
+            ].map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Card className="bg-slate-50 dark:bg-slate-900 border-none shadow-none p-8 relative h-full">
+                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center text-primary shadow-sm">
+                    <Activity className="w-6 h-6" />
+                  </div>
+                  <CardContent className="space-y-6 pt-4 px-0">
+                    <p className="text-lg font-medium leading-relaxed">"{t.text}"</p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700" />
+                      <div>
+                        <div className="font-bold dark:text-white">{t.author}</div>
+                        <div className="text-xs text-muted-foreground uppercase font-semibold">{t.role}</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* FINAL CTA */}
+      <section className="py-24">
+        <div className="container px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-primary rounded-[3rem] p-12 md:p-24 text-primary-foreground text-center space-y-8 relative overflow-hidden group"
+          >
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-white opacity-[0.03] rotate-12 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-4xl md:text-6xl font-bold tracking-tight"
+            >
+              Ready to modernize <br /> your healthcare practice?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-xl opacity-90 max-w-[700px] mx-auto leading-relaxed"
+            >
+              Join forward-thinking healthcare providers across India who trust MedAlph for their clinical operations.
+              Schedule a personalized tour today.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex justify-center"
+            >
+              <Button size="xl" variant="secondary" className="h-14 px-10 text-lg font-bold group" onClick={() => navigate('/contact')}>
+                Request a Demo
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 };
 
