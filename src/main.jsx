@@ -13,7 +13,7 @@ import { Analytics } from "@vercel/analytics/react"
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <ThemeProvider defaultTheme="light" storageKey="medalph-ui-theme">
         <App />
         <SpeedInsights />
         <Analytics />
