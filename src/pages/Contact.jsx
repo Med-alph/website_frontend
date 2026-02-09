@@ -80,7 +80,7 @@ const Contact = () => {
             <div className="space-y-8">
               {[
                 { icon: Mail, label: "Email us", value: "support@medalph.com" },
-                { icon: Phone, label: "Call our team", value: "+91 12345 67890" },
+                { icon: Phone, label: "Call our team", value: "+91 63695 45178" },
                 { icon: MapPin, label: "Visit us", value: "Coimbatore, TN, India" }
               ].map((item, i) => (
                 <motion.div

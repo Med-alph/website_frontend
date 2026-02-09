@@ -297,7 +297,7 @@ const Home = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
               {[
-                { label: "ISO 27001", detail: "Information Security Management System certified.", icon: Shield },
+                { label: "Privacy Focused", detail: "Built with privacy-by-design principles to protect patient confidentiality.", icon: Shield },
                 { label: "Data Encryption", detail: "End-to-end encryption for all patient and clinical data.", icon: Shield },
                 { label: "99.9% Uptime", detail: "Tier-4 data centers ensuring your clinic never stops.", icon: Zap },
                 { label: "Role-Based Access", detail: "Strict audit logs for every interaction with patient files.", icon: Users },

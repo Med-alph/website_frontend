@@ -29,8 +29,8 @@ const Security = () => {
             color: "bg-blue-500"
         },
         {
-            title: "HIPAA Readiness",
-            desc: "Built from the ground up to comply with HIPAA and internal healthcare data privacy laws in India.",
+            title: "Indian Health Standards",
+            desc: "Built from the ground up to comply with digital healthcare data privacy laws in India.",
             icon: Shield,
             color: "bg-indigo-500"
         },
@@ -162,10 +162,10 @@ const Security = () => {
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 {[
-                                    { label: "HIPAA", subtitle: "Ready", icon: Shield },
-                                    { label: "ISO 27001", subtitle: "Certified", icon: Award },
+                                    { label: "Access Control", subtitle: "Role-Based", icon: UserCheck },
+                                    { label: "Data Privacy", subtitle: "Strict", icon: Shield },
                                     { label: "SOC 2", subtitle: "Type II", icon: FileText },
-                                    { label: "GDPR", subtitle: "Ready", icon: Globe }
+                                    { label: "99.9% Uptime", subtitle: "Guaranteed", icon: Server }
                                 ].map((cert, i) => (
                                     <motion.div
                                         key={i}
@@ -219,10 +219,10 @@ const Security = () => {
                                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                                         <Shield className="w-5 h-5 text-primary" />
                                     </div>
-                                    <h3 className="text-xl font-semibold">Healthcare Compliance</h3>
+                                    <h3 className="text-xl font-semibold">Privacy Standards</h3>
                                 </div>
                                 <p className="text-muted-foreground leading-relaxed">
-                                    HIPAA-ready architecture with comprehensive Business Associate Agreements (BAA)
+                                    Privacy-first architecture with strict data isolation policies
                                     and adherence to Indian healthcare data protection regulations.
                                 </p>
                             </motion.div>
@@ -241,8 +241,8 @@ const Security = () => {
                                     <h3 className="text-xl font-semibold">Data Protection</h3>
                                 </div>
                                 <p className="text-muted-foreground leading-relaxed">
-                                    ISO 27001 certified information security management with SOC 2 Type II compliance
-                                    for service organization controls.
+                                    Comprehensive information security management with strict data access controls
+                                    and regular security audits.
                                 </p>
                             </motion.div>
 
@@ -257,10 +257,10 @@ const Security = () => {
                                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                                         <Globe className="w-5 h-5 text-primary" />
                                     </div>
-                                    <h3 className="text-xl font-semibold">Global Standards</h3>
+                                    <h3 className="text-xl font-semibold">Patient Control</h3>
                                 </div>
                                 <p className="text-muted-foreground leading-relaxed">
-                                    GDPR-ready data handling practices with support for data portability, right to erasure,
+                                    Full support for patient consent management, data portability,
                                     and transparent privacy policies.
                                 </p>
                             </motion.div>

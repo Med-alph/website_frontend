@@ -319,7 +319,7 @@ const TermsOfService = () => {
                         <div className="flex flex-col items-center gap-2 text-muted-foreground">
                             <p className="font-semibold text-slate-900 dark:text-white">MedAlph Healthcare Solutions</p>
                             <p>Email: legal@medalph.com</p>
-                            <p>Phone: +91 12345 67890</p>
+                            <p>Phone: +91 63695 45178</p>
                             <p>Address: Coimbatore, Tamil Nadu, India</p>
                         </div>
                     </motion.div>
