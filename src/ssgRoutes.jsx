@@ -1,20 +1,18 @@
 import React from 'react';
 import Layout from './components/Layout';
-
-// Same lazy pages as App.jsx (no component changes)
-const Home = React.lazy(() => import('./pages/Home'));
-const About = React.lazy(() => import('./pages/About'));
-const ProductOverview = React.lazy(() => import('./pages/ProductOverview'));
-const Modules = React.lazy(() => import('./pages/Modules'));
-const Pricing = React.lazy(() => import('./pages/Pricing'));
-const Security = React.lazy(() => import('./pages/Security'));
-const Contact = React.lazy(() => import('./pages/Contact'));
-const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
-const TermsOfService = React.lazy(() => import('./pages/TermsOfService'));
-
 import SSGRoot from './SSGRoot';
 
-/** Routes for vite-react-ssg (mirrors App.jsx structure). */
+// Direct imports instead of React.lazy
+import Home from './pages/Home';
+import About from './pages/About';
+import ProductOverview from './pages/ProductOverview';
+import Modules from './pages/Modules';
+import Pricing from './pages/Pricing';
+import Security from './pages/Security';
+import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+
 export const routes = [
   {
     path: '/',
