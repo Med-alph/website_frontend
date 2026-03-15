@@ -1,11 +1,27 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, CheckCircle2, Shield, Zap, TrendingUp, Users, Activity, Cpu, Mic, Image as ImageIcon, Clock, LayoutDashboard } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { usePageTitle } from '@/hooks/usePageTitle';
 import { cn } from "@/lib/utils";
+
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Medalph",
+  "url": "https://www.medalph.com",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "description": "Medical practice management software for clinics and healthcare providers.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Medalph",
+    "url": "https://www.medalph.com"
+  }
+};
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,6 +31,21 @@ const Home = () => {
   );
   return (
     <div className="flex flex-col w-full">
+      <Helmet>
+        <title>Medalph - Medical Software for Clinics & Healthcare Providers</title>
+        <meta name="description" content="Medalph is practice management software built for clinics and healthcare providers. Manage appointments, patient records, and billing — all in one place." />
+        <meta property="og:title" content="Medalph - Medical Software for Clinics" />
+        <meta property="og:description" content="Practice management software built for modern clinics." />
+        <meta property="og:url" content="https://www.medalph.com" />
+        <meta property="og:image" content="https://www.medalph.com/og-image.png" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.medalph.com/og-image.png" />
+        <link rel="canonical" href="https://www.medalph.com/" />
+        <script type="application/ld+json">
+          {JSON.stringify(homeJsonLd)}
+        </script>
+      </Helmet>
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
         {/* Background Gradients */}

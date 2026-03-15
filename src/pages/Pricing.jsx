@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, Activity, Shield, Zap } from 'lucide-react';
@@ -94,6 +95,11 @@ const Pricing = () => {
 
     return (
         <div className="flex flex-col w-full bg-slate-50 dark:bg-slate-950 pt-24 pb-24 md:pt-32">
+            <Helmet>
+                <title>Pricing - Medalph Medical Software</title>
+                <meta name="description" content="Simple, transparent pricing for Medalph clinic management software. Find the right plan for your healthcare practice." />
+                <link rel="canonical" href="https://www.medalph.com/pricing" />
+            </Helmet>
             <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center text-center space-y-4 mb-16">
                     <motion.div

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import {
     Shield,
@@ -62,6 +63,11 @@ const Security = () => {
 
     return (
         <div className="flex flex-col w-full bg-background pt-24 pb-24 md:pt-32">
+            <Helmet>
+                <title>Security - Medalph Medical Software</title>
+                <meta name="description" content="Medalph takes data security seriously. Learn how we protect your clinic and patient data with enterprise-grade security." />
+                <link rel="canonical" href="https://www.medalph.com/security" />
+            </Helmet>
             {/* Hero */}
             <section className="container px-4 md:px-6 mb-24">
                 <div className="flex flex-col items-center text-center space-y-6 max-w-[900px] mx-auto">

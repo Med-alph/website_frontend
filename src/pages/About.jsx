@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Activity, Shield, Users, Target, Heart, ArrowRight, Database, Building2, Stethoscope, Microscope, Tablet } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -32,6 +33,11 @@ const About = () => {
 
   return (
     <div className="flex flex-col w-full bg-background pt-24 pb-24 md:pt-32">
+      <Helmet>
+        <title>About Us - Medalph</title>
+        <meta name="description" content="Learn about Medalph and our mission to simplify medical practice management for clinics and healthcare providers." />
+        <link rel="canonical" href="https://www.medalph.com/about" />
+      </Helmet>
       {/* Hero Section */}
       <section className="container px-4 md:px-6 mb-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">

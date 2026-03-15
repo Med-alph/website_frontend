@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -170,6 +171,11 @@ const Modules = () => {
 
     return (
         <div className="flex flex-col w-full">
+            <Helmet>
+                <title>Modules - Medalph Medical Software</title>
+                <meta name="description" content="Discover Medalph modules built for clinic workflows — from patient intake to reporting and analytics." />
+                <link rel="canonical" href="https://www.medalph.com/modules" />
+            </Helmet>
             {/* Hero Section */}
             <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
                 <div className="container px-4 md:px-6">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, ArrowRight, MessageSquare, CheckCircle2 } from 'lucide-react';
@@ -44,6 +45,11 @@ const Contact = () => {
 
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-slate-950 pt-24 pb-24 md:pt-32">
+      <Helmet>
+        <title>Contact Us - Medalph</title>
+        <meta name="description" content="Get in touch with the Medalph team. We are here to help you set up your clinic management software." />
+        <link rel="canonical" href="https://www.medalph.com/contact" />
+      </Helmet>
       <div className="container px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
 
