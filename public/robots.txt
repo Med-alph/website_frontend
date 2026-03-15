@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://medalph.com/sitemap.xml
+Sitemap: https://www.medalph.com/sitemap.xml

@@ -126,6 +126,7 @@ const ProductOverview = () => {
                                                         src={images[index].src}
                                                         alt={images[index].alt}
                                                         className="w-full h-full object-contain rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"
+                                                        loading="lazy"
                                                     />
 
                                                     {/* Floating Label */}

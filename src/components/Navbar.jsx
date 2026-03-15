@@ -50,7 +50,7 @@ const Navbar = () => {
           <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden rounded-xl border border-primary/20 bg-white shadow-sm transition-transform group-hover:scale-105">
             <img
               src="/images/medalphlogo.jpg"
-              alt="MedAlph Logo"
+              alt="Medalph logo - medical software for clinics"
               className="w-full h-full object-cover"
             />
           </div>

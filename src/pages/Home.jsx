@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 const Home = () => {
   const navigate = useNavigate();
   usePageTitle(
-    'MedAlph | Modern EMR for Faster Clinics & Smarter Hospitals',
-    'Experience a clinically trustworthy and technically powerful EMR built for the Indian healthcare ecosystem. Manage patients, billing, and clinical records in one platform.'
+    'Medalph - Medical Software for Clinics & Healthcare Providers',
+    'Medalph is practice management software built for clinics and healthcare providers. Manage appointments, patient records, and billing — all in one place. Trusted by healthcare teams.'
   );
   return (
     <div className="flex flex-col w-full">
@@ -41,7 +41,7 @@ const Home = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white max-w-[1000px]"
             >
-              Modern EMR built for <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">faster</span> clinics and <span className="text-primary italic">smarter</span> hospitals.
+              Medical Software Built for <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">Clinics</span> & <span className="text-primary italic">Healthcare Providers</span>
             </motion.h1>
 
             <motion.p
@@ -168,8 +168,9 @@ const Home = () => {
               <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden aspect-[4/3]">
                 <img
                   src="/images/dashboard.png"
-                  alt="MedAlph Dashboard"
+                  alt="Medalph practice management dashboard showing appointments, patient records, and billing in one view"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </motion.div>

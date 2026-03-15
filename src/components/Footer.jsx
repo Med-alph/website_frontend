@@ -25,8 +25,9 @@ const Footer = () => {
                             <div className="w-10 h-10 rounded-xl overflow-hidden border border-primary/20 bg-white">
                                 <img
                                     src="/images/medalphlogo.jpg"
-                                    alt="MedAlph Logo"
+                                    alt="Medalph logo - medical software for clinics and healthcare providers"
                                     className="w-full h-full object-cover"
+                                    loading="lazy"
                                 />
                             </div>
                             <span className="text-xl font-bold tracking-tight text-white">

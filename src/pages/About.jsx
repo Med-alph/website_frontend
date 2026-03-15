@@ -71,7 +71,7 @@ const About = () => {
           >
             <div className="absolute -inset-4 bg-primary/5 rounded-[3rem] blur-2xl" />
             <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-800 bg-slate-100 dark:bg-slate-900">
-              <img src="/images/Team.jpg" alt="MedAlph Team" className="w-full h-full object-cover" />
+              <img src="/images/Team.jpg" alt="Medalph team members working on healthcare software for clinics" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </motion.div>
         </div>
@@ -143,8 +143,9 @@ const About = () => {
               <div className="w-full h-full rounded-full bg-white dark:bg-slate-800 shadow-inner flex items-center justify-center overflow-hidden border-4 border-white dark:border-slate-700">
                 <img
                   src="/images/about.jpg"
-                  alt="MedAlph Mission"
+                  alt="Medalph mission: empowering healthcare providers with practice management software"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
                 />
               </div>
             </div>
