@@ -1,20 +1,16 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import { ThemeProvider } from './components/theme-provider';
-import ScrollToTop from './components/ScrollToTop';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-/**
- * Root wrapper for vite-react-ssg: provides Helmet, Theme, and ScrollToTop.
- * Layout and page content render via Outlet.
- */
-const SSGRoot = () => (
-  <HelmetProvider>
-    <ThemeProvider defaultTheme="light" storageKey="medalph-ui-theme">
-      <ScrollToTop />
-      <Outlet />
-    </ThemeProvider>
-  </HelmetProvider>
-);
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
-export default SSGRoot;
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
+
+  return null;
+};
+
+export default ScrollToTop;
