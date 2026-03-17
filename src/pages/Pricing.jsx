@@ -128,7 +128,7 @@ const Pricing = () => {
                     </motion.p>
                 </div>
 
-                {loading ? <PricingSkeleton /> : (
+                {loading ? <PricingSkeleton /> : plans.length > 0 ? (
                     <div className="grid lg:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
                         {plans.map((plan, i) => {
                             const styles = getTierStyles(plan.tier);
@@ -192,6 +192,16 @@ const Pricing = () => {
                                 </motion.div>
                             );
                         })}
+                    </div>
+                ) : (
+                    <div className="text-center py-16 max-w-[500px] mx-auto">
+                        <p className="text-muted-foreground mb-4">
+                            Unable to load pricing at the moment. Please try again later or contact us for a personalized quote.
+                        </p>
+                        <Button onClick={() => navigate('/contact')} variant="outline">
+                            Contact Us
+                            <ArrowRight className="ml-2 w-4 h-4" />
+                        </Button>
                     </div>
                 )}
 
