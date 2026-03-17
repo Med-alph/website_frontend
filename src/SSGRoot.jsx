@@ -10,6 +10,8 @@ const SSGRoot = () => {
     }
   }, [pathname]);
 
+
+  
   return <Outlet />;
 };
 
