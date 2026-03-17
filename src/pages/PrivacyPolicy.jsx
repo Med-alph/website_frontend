@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, CheckCircle2, Lock, Eye, Database, UserCheck } from 'lucide-react';
-import { usePageTitle } from '@/hooks/usePageTitle';
+import SEO from '@/components/SEO';
+import { getBreadcrumbSchema, getCanonicalUrl } from '@/config/seo';
 
 const PrivacyPolicy = () => {
-    usePageTitle(
-        'Privacy Policy | MedAlph',
-        'Learn how MedAlph protects your data and respects your privacy. Our commitment to security and transparency.'
-    );
+    const jsonLd = getBreadcrumbSchema([
+        { name: 'Home', url: getCanonicalUrl('/') },
+        { name: 'Privacy Policy', url: getCanonicalUrl('/privacy') },
+    ]);
 
     const sections = [
         {
@@ -104,6 +105,12 @@ const PrivacyPolicy = () => {
 
     return (
         <div className="flex flex-col w-full">
+            <SEO
+                title="Privacy Policy | Medalph"
+                description="Learn how Medalph protects your data and respects your privacy. Our commitment to security, transparency, and healthcare compliance."
+                canonicalPath="/privacy"
+                jsonLd={jsonLd}
+            />
             {/* Hero Section */}
             <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
                 <div className="container px-4 md:px-6">

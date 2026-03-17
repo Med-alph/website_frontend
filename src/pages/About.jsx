@@ -1,17 +1,17 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Activity, Shield, Users, Target, Heart, ArrowRight, Database, Building2, Stethoscope, Microscope, Tablet } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { usePageTitle } from '@/hooks/usePageTitle';
+import SEO from '@/components/SEO';
+import { getBreadcrumbSchema, getCanonicalUrl } from '@/config/seo';
 
 const About = () => {
   const navigate = useNavigate();
-  usePageTitle(
-    'About MedAlph | Our Mission & Clinical Philosophy',
-    'Learn how MedAlph is redefining EMR software with a focus on clinician experience, data integrity, and patient outcomes.'
-  );
+  const jsonLd = getBreadcrumbSchema([
+    { name: 'Home', url: getCanonicalUrl('/') },
+    { name: 'About', url: getCanonicalUrl('/about') },
+  ]);
 
   const values = [
     {
@@ -33,11 +33,12 @@ const About = () => {
 
   return (
     <div className="flex flex-col w-full bg-background pt-24 pb-24 md:pt-32">
-      <Helmet>
-        <title>About Us - Medalph</title>
-        <meta name="description" content="Learn about Medalph and our mission to simplify medical practice management for clinics and healthcare providers." />
-        <link rel="canonical" href="https://www.medalph.com/about" />
-      </Helmet>
+      <SEO
+        title="About Us | Medalph"
+        description="Learn about Medalph and our mission to simplify medical practice management for clinics and healthcare providers. Patient-centered design, clinical trust, and technical excellence."
+        canonicalPath="/about"
+        jsonLd={jsonLd}
+      />
       {/* Hero Section */}
       <section className="container px-4 md:px-6 mb-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">

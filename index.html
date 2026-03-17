@@ -1,15 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-NZ">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/images/medalphlogo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" type="image/jpeg" href="/images/medalphlogo.jpg" />
+    <link rel="apple-touch-icon" href="/images/medalphlogo.jpg" />
 
-    <!-- Primary SEO meta tags -->
+    <!-- Preconnect to critical origins -->
+    <link rel="preconnect" href="https://www.medalph.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="https://vercel-insights.com" />
+
+    <!-- Primary SEO meta tags (fallback - React Helmet overrides per-page) -->
     <title>Medalph - Medical Software for Clinics & Healthcare Providers</title>
     <meta name="description" content="Medalph is practice management software built for clinics and healthcare providers. Manage appointments, patient records, and billing — all in one place. Trusted by healthcare teams." />
-    <meta name="keywords" content="medical software, clinic management software, practice management, EMR software, healthcare software New Zealand, appointment scheduling clinic" />
+    <meta name="keywords" content="medical software, clinic management software, practice management, EMR software, healthcare software New Zealand, appointment scheduling clinic, EHR, patient records, medical billing" />
     <meta name="robots" content="index, follow" />
+    <meta name="author" content="Medalph" />
     <link rel="canonical" href="https://www.medalph.com/" />
 
     <!-- Open Graph -->
@@ -18,7 +26,10 @@
     <meta property="og:description" content="Practice management software built for modern clinics and healthcare providers." />
     <meta property="og:url" content="https://www.medalph.com" />
     <meta property="og:image" content="https://www.medalph.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Medalph" />
+    <meta property="og:locale" content="en_NZ" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -26,27 +37,9 @@
     <meta name="twitter:description" content="Practice management software built for modern clinics." />
     <meta name="twitter:image" content="https://www.medalph.com/og-image.png" />
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD Structured Data (fallback - pages may inject additional) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Medalph",
-      "url": "https://www.medalph.com",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "description": "Medical practice management software for clinics and healthcare providers. Features include appointment scheduling, patient records, and billing.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Medalph",
-        "url": "https://www.medalph.com"
-      }
-    }
+    {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Medalph","url":"https://www.medalph.com","logo":"https://www.medalph.com/images/medalphlogo.jpg"},{"@type":"WebSite","name":"Medalph","url":"https://www.medalph.com","publisher":{"@type":"Organization","name":"Medalph","url":"https://www.medalph.com"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","url":"https://www.medalph.com/contact?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"SoftwareApplication","name":"Medalph","url":"https://www.medalph.com","applicationCategory":"HealthApplication","operatingSystem":"Web","description":"Medical practice management software for clinics and healthcare providers. Appointment scheduling, patient records, and billing.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Medalph","url":"https://www.medalph.com"}}]}
     </script>
   </head>
   <body>

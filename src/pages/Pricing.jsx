@@ -1,22 +1,21 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, Activity, Shield, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import { usePageTitle } from '@/hooks/usePageTitle';
+import SEO from '@/components/SEO';
+import { getBreadcrumbSchema, getCanonicalUrl } from '@/config/seo';
 
-import { useState, useEffect } from 'react';
 import { fetchPublicPlans } from '@/api/publicPlans';
 
 const Pricing = () => {
     const navigate = useNavigate();
-    usePageTitle(
-        'Transparent Pricing | MedAlph Healthcare Platform',
-        'Choose the EMR plan that fits your practice scale. From single-doctor clinics to full-size enterprise hospital chains.'
-    );
+    const jsonLd = getBreadcrumbSchema([
+        { name: 'Home', url: getCanonicalUrl('/') },
+        { name: 'Pricing', url: getCanonicalUrl('/pricing') },
+    ]);
 
     const [loading, setLoading] = useState(true);
     const [plans, setPlans] = useState([]);
@@ -95,11 +94,12 @@ const Pricing = () => {
 
     return (
         <div className="flex flex-col w-full bg-slate-50 dark:bg-slate-950 pt-24 pb-24 md:pt-32">
-            <Helmet>
-                <title>Pricing - Medalph Medical Software</title>
-                <meta name="description" content="Simple, transparent pricing for Medalph clinic management software. Find the right plan for your healthcare practice." />
-                <link rel="canonical" href="https://www.medalph.com/pricing" />
-            </Helmet>
+            <SEO
+                title="Pricing | Medalph"
+                description="Simple, transparent pricing for Medalph clinic management software. Find the right plan for your healthcare practice — from single-doctor clinics to enterprise."
+                canonicalPath="/pricing"
+                jsonLd={jsonLd}
+            />
             <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center text-center space-y-4 mb-16">
                     <motion.div

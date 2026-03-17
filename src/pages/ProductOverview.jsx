@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -30,14 +29,15 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import { usePageTitle } from '@/hooks/usePageTitle';
+import SEO from '@/components/SEO';
+import { getBreadcrumbSchema, getCanonicalUrl } from '@/config/seo';
 
 const ProductOverview = () => {
     const navigate = useNavigate();
-    usePageTitle(
-        'Platform Overview | MedAlph EMR Suite',
-        'Deep dive into the MedAlph EMR platform: clinical documentation, unified workflows, and scalable data layers designed for practitioners.'
-    );
+    const jsonLd = getBreadcrumbSchema([
+        { name: 'Home', url: getCanonicalUrl('/') },
+        { name: 'Services', url: getCanonicalUrl('/services') },
+    ]);
     const fadeInUp = {
         initial: { opacity: 0, y: 20 },
         animate: { opacity: 1, y: 0 },
@@ -46,11 +46,12 @@ const ProductOverview = () => {
 
     return (
         <div className="flex flex-col w-full overflow-hidden">
-            <Helmet>
-                <title>Services - Medalph Medical Software</title>
-                <meta name="description" content="Explore Medalph services including appointment scheduling, patient record management, billing, and more for clinics." />
-                <link rel="canonical" href="https://www.medalph.com/services" />
-            </Helmet>
+            <SEO
+                title="Services | Medalph"
+                description="Explore Medalph services: appointment scheduling, patient record management, billing, EHR, clinical documentation, and more. Built for modern clinics."
+                canonicalPath="/services"
+                jsonLd={jsonLd}
+            />
             {/* Hero Section */}
             <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 bg-slate-50 dark:bg-slate-950">
                 <div className="absolute inset-0 z-0 opacity-30">
