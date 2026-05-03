@@ -176,7 +176,7 @@ const Home = () => {
               <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 via-blue-400/10 to-transparent rounded-[2rem] blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
               <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden aspect-[4/3]">
                 <img
-                  src="/images/dashboard.png"
+                  src="/images/admin-dash.png"
                   alt="Medalph practice management dashboard showing appointments, patient records, and billing in one view"
                   className="w-full h-full object-cover"
                   loading="lazy"

@@ -102,9 +102,12 @@ const ProductOverview = () => {
                             {(() => {
                                 const [index, setIndex] = React.useState(0);
                                 const images = [
-                                    { src: "/images/docdash.png", alt: "Doctor Dashboard" },
-                                    { src: "/images/analytics.png", alt: "Analytics Suite" },
-                                    { src: "/images/patientportal.png", alt: "Patient Portal" }
+                                    { src: "/images/doctor-dashboard.png", alt: "Doctor Dashboard" },
+                                    { src: "/images/admin-dash.png", alt: "Analytics Suite" },
+                                    { src: "/images/patientportal.png", alt: "Patient Portal" },
+                                    { src: "/images/billing.png", alt: "Billing" },
+                                    { src: "/images/admin-revenue-dash.png", alt: "Revenue Dashboard" },
+                                    { src: "/images/inventory.png", alt: "Inventory Management" },
                                 ];
 
                                 React.useEffect(() => {
