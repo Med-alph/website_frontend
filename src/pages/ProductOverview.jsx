@@ -24,13 +24,72 @@ import {
     Key,
     FileJson,
     CreditCard,
-    PieChart
+    PieChart,
+    Sparkles,
+    ShieldAlert,
+    FlaskConical
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import SEO from '@/components/SEO';
 import { getBreadcrumbSchema, getCanonicalUrl } from '@/config/seo';
+
+const FeatureImageMockup = ({ src, alt, fallbackBg }) => {
+    const [imageError, setImageError] = React.useState(false);
+
+    return (
+        <div className="relative group w-full aspect-[16/10] rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-primary/10">
+            {/* Browser Top Bar */}
+            <div className="h-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 flex items-center gap-2">
+                <div className="flex gap-1.5">
+                    <span className="w-3 h-3 rounded-full bg-red-400/80" />
+                    <span className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                    <span className="w-3 h-3 rounded-full bg-green-400/80" />
+                </div>
+                <div className="mx-auto w-1/2 h-5 rounded bg-slate-200/50 dark:bg-slate-800/50 flex items-center justify-center">
+                    <span className="text-[10px] text-muted-foreground select-none truncate">medalph.com/{alt.toLowerCase().replace(/\s+/g, '-')}</span>
+                </div>
+            </div>
+
+            {/* Content Area */}
+            <div className="relative w-full h-[calc(100%-2rem)] bg-slate-50 dark:bg-slate-950 flex items-center justify-center">
+                {!imageError ? (
+                    <img
+                        src={src}
+                        alt={alt}
+                        className="w-full h-full object-contain p-2 bg-slate-50 dark:bg-slate-950 transition-transform duration-300 group-hover:scale-[1.01]"
+                        onError={() => setImageError(true)}
+                        loading="lazy"
+                    />
+                ) : (
+                    /* Elegant placeholder if screenshot is not yet uploaded */
+                    <div className={cn("absolute inset-0 flex flex-col items-center justify-center p-6 text-center overflow-hidden bg-gradient-to-br", fallbackBg)}>
+                        {/* Abstract floating circles for high-end look */}
+                        <div className="absolute w-40 h-40 rounded-full bg-primary/10 blur-2xl -top-10 -right-10 animate-pulse" />
+                        <div className="absolute w-40 h-40 rounded-full bg-blue-500/10 blur-2xl -bottom-10 -left-10 animate-pulse" style={{ animationDelay: '1s' }} />
+
+                        <div className="z-10 space-y-4 max-w-xs">
+                            <div className="mx-auto w-16 h-16 rounded-2xl bg-white/80 dark:bg-slate-800/80 shadow-md flex items-center justify-center border border-white/20">
+                                <ImageIcon className="w-8 h-8 text-primary/80" />
+                            </div>
+                            <div className="space-y-1">
+                                <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">{alt} Dashboard</h4>
+                                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                                    Display screenshot by adding <code className="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-[10px] text-primary">{src}</code> to your public images folder.
+                                </p>
+                            </div>
+                            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/5 border border-primary/10 text-[10px] font-semibold text-primary">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
+                                Custom Screenshot Placeholder
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
 
 const ProductOverview = () => {
     const navigate = useNavigate();
@@ -196,7 +255,7 @@ const ProductOverview = () => {
                                         {
                                             icon: Clock,
                                             title: "Smart Scheduling",
-                                            desc: "Seamless online booking flow with real-time availability and automated queue management.",
+                                            desc: "Seamless online booking flow with real-time availability and intelligent queue management.",
                                             color: "text-emerald-600"
                                         },
                                         {
@@ -277,6 +336,161 @@ const ProductOverview = () => {
                 </div>
             </motion.section>
 
+            {/* Advanced Intelligent Features alternating section */}
+            <section className="py-24 md:py-32 bg-slate-50/50 dark:bg-slate-900/10 border-y border-slate-100 dark:border-slate-800/80">
+                <div className="container px-4 md:px-6">
+                    <div className="text-center max-w-[800px] mx-auto space-y-6 mb-24">
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold uppercase tracking-wider animate-pulse"
+                        >
+                            Next-Gen Clinical Features
+                        </motion.div>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white"
+                        >
+                            Supercharge your practice with <br />
+                            <span className="text-primary italic font-serif">clinical intelligence.</span>
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                            className="text-lg text-muted-foreground leading-relaxed"
+                        >
+                            Equip your clinicians and administrative teams with advanced machine-learning assets and visual clinical records built to fit naturally within active health operations.
+                        </motion.p>
+                    </div>
+
+                    <div className="space-y-32">
+                        {[
+                            {
+                                badge: "AI Clinical Copilot",
+                                title: "AI Clinical Copilot",
+                                description: "A stateless, secure clinical assistant designed to streamline documentation tasks and summarize patient trends at the point of care.",
+                                points: [
+                                    "SOAP Documentation Review: Semantic validation that audits clinical notes on the fly for consistency and completeness before they are finalized.",
+                                    "Visit-to-Visit Trend Tracking: Compares current notes with the patient's past visits, highlighting differences in symptoms, vitals, and medications.",
+                                    "Discharge Summaries: Generates structured discharge notes and patient-friendly instructions directly from consult files in seconds."
+                                ],
+                                image: "/images/ai-copilot.png",
+                                fallbackBg: "from-indigo-500/10 via-purple-500/5 to-pink-500/10 dark:from-indigo-950/30 dark:via-purple-950/20 dark:to-pink-950/30",
+                                icon: Sparkles,
+                                colorClass: "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-900/50"
+                            },
+                            {
+                                badge: "AI Prescription Check",
+                                title: "AI Allergy & Conflict Identifier",
+                                description: "A real-time safety screen that runs in the background to protect patients from harmful drug conflicts.",
+                                points: [
+                                    "Point-of-Care Check: Cross-references proposed prescriptions against patient allergies, medical history, and past surgeries instantly.",
+                                    "Safety Status Warnings: Displays visual safety levels (Safe, Caution, High Risk) with detailed descriptions of potential contraindications.",
+                                    "Alternative Considerations: Suggests clinical alternative parameters for the physician to review before confirming orders."
+                                ],
+                                image: "/images/allergy-ai.png",
+                                fallbackBg: "from-rose-500/10 via-orange-500/5 to-red-500/10 dark:from-rose-950/30 dark:via-orange-950/20 dark:to-red-950/30",
+                                icon: ShieldAlert,
+                                colorClass: "text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 border border-rose-100 dark:border-rose-900/50"
+                            },
+                            {
+                                badge: "Billing & Ledger",
+                                title: "Revenue Summary & Cashier Ledger",
+                                description: "A centralized billing and payment collection dashboard that tracks all hospital income channels.",
+                                points: [
+                                    "Unified Cashier Queue: Lists all pending payments from clinical consults, lab orders, procedures, and pharmacies in one place.",
+                                    "Flexible Settlements: Supports manual settlement tracking (Cash, UPI, Credit limit deductions) alongside online Razorpay and Stripe checkouts.",
+                                    "Financial Auditing: Features account receivables tracking and high-fidelity CSV/Excel financial exports for simple bookkeeping."
+                                ],
+                                image: "/images/admin-revenue-dash.png",
+                                fallbackBg: "from-emerald-500/10 via-teal-500/5 to-cyan-500/10 dark:from-emerald-950/30 dark:via-teal-950/20 dark:to-cyan-950/30",
+                                icon: TrendingUp,
+                                colorClass: "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-100 dark:border-emerald-900/50"
+                            },
+                            {
+                                badge: "Diagnostic Portal",
+                                title: "Digital Laboratory Records",
+                                description: "A connected diagnostic portal that streamlines lab order creation and patient result tracking.",
+                                points: [
+                                    "Direct Lab Ordering: Allows doctors to order blood panels, diagnostic tests, or imaging directly inside the patient consultation view.",
+                                    "Order Workflow Tracking: Monitors the status of every test through its lifecycle (Pending, Processing, Completed) to ensure no order is missed.",
+                                    "Integrated Patient History: Stores all completed diagnostic results directly under the patient's secure timeline for instant historical review."
+                                ],
+                                image: "/images/lab-records.png",
+                                fallbackBg: "from-blue-500/10 via-sky-500/5 to-cyan-500/10 dark:from-blue-950/30 dark:via-sky-950/20 dark:to-cyan-950/30",
+                                icon: FlaskConical,
+                                colorClass: "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 border border-blue-100 dark:border-blue-900/50"
+                            }
+                        ].map((feature, i) => {
+                            const IconComponent = feature.icon;
+                            const isEven = i % 2 === 1;
+
+                            return (
+                                <div key={i} className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                                    {/* Text Content */}
+                                    <motion.div
+                                        initial={{ opacity: 0, x: isEven ? 30 : -30 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true, margin: "-100px" }}
+                                        transition={{ duration: 0.6 }}
+                                        className={cn("space-y-6", isEven ? "lg:order-last" : "")}
+                                    >
+                                        <div className="space-y-4">
+                                            <div className="flex items-center gap-3">
+                                                <div className={cn("p-2 rounded-xl border flex items-center justify-center", feature.colorClass)}>
+                                                    <IconComponent className="w-5 h-5 animate-pulse" />
+                                                </div>
+                                                <span className="text-xs font-extrabold uppercase tracking-widest text-primary/80">
+                                                    {feature.badge}
+                                                </span>
+                                            </div>
+                                            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
+                                                {feature.title}
+                                            </h3>
+                                            <p className="text-muted-foreground text-base md:text-lg leading-relaxed font-normal">
+                                                {feature.description}
+                                            </p>
+                                        </div>
+
+                                        <div className="space-y-3.5 pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                                            {feature.points.map((point, idx) => (
+                                                <div key={idx} className="flex items-start gap-3">
+                                                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                                                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 leading-snug">
+                                                        {point}
+                                                    </span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </motion.div>
+
+                                    {/* Visual Mockup */}
+                                    <motion.div
+                                        initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true, margin: "-100px" }}
+                                        transition={{ duration: 0.6 }}
+                                        className={isEven ? "lg:order-first" : ""}
+                                    >
+                                        <FeatureImageMockup 
+                                            src={feature.image} 
+                                            alt={feature.title} 
+                                            fallbackBg={feature.fallbackBg} 
+                                        />
+                                    </motion.div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
             {/* Module Overview (Layered Detail) */}
             <motion.section
                 initial={{ opacity: 0 }}
@@ -313,7 +527,7 @@ const ProductOverview = () => {
                                 title: "Clinical Copilot",
                                 subtitle: "Clinical Intelligence",
                                 desc: "An AI-powered assistant that helps doctors during consultations with real-time insights.",
-                                features: ["Automated Documentation", "Voice-to-SOAP Transcription", "Advanced Image Analysis"],
+                                features: ["Smart Documentation", "Voice-to-SOAP Transcription", "Advanced Image Analysis"],
                                 icon: Cpu
                             },
                             {
@@ -327,7 +541,7 @@ const ProductOverview = () => {
                                 title: "Patient Experience",
                                 subtitle: "Engagement Suite",
                                 desc: "High-quality video consults and a dedicated portal for patient engagement.",
-                                features: ["Telehealth Module", "Automated Reminders", "Secure OTP Login"],
+                                features: ["Telehealth Module", "Smart Reminders", "Secure OTP Login"],
                                 icon: Users
                             }
                         ].map((module, i) => (
